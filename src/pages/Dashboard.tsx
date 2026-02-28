@@ -125,7 +125,7 @@ const Dashboard = () => {
           {d.highTension.map((ht) => (
             <button
               key={ht.app}
-              onClick={() => navigate(`/session/${ht.session}`)}
+              onClick={() => navigate(`/ai-reflection?app=${ht.app.toLowerCase()}`)}
               className="bg-card rounded-xl p-3 text-left border border-high-tension/15 hover:border-high-tension/30 transition-colors"
             >
               <div className="flex items-center gap-2 mb-1.5">
