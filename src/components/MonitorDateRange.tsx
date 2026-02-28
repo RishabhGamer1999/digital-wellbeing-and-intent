@@ -20,12 +20,12 @@ const MonitorDateRange = ({ value, onChange }: MonitorDateRangeProps) => {
   };
 
   return (
-    <div className="flex gap-2">
+    <div className="flex gap-2 flex-wrap">
       {chips.map((chip) => (
         <button
           key={chip.value}
           onClick={() => handleSelect(chip.value)}
-          className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors ${
+          className={`px-3 py-1.5 rounded-full text-xs font-medium transition-colors whitespace-nowrap ${
             active === chip.value
               ? "bg-primary text-primary-foreground"
               : "bg-secondary text-muted-foreground"

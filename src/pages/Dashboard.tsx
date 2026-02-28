@@ -80,14 +80,14 @@ const Dashboard = () => {
       {/* Activity Monitors Row */}
       <div className="space-y-2">
         <h2 className="text-sm font-semibold text-foreground">Activity Monitors</h2>
-        <div className="flex gap-3 overflow-x-auto pb-2 -mx-1 px-1 scrollbar-none">
+        <div className="grid grid-cols-3 gap-2">
           {d.monitors.map((m) => {
             const Icon = m.icon;
             return (
               <button
                 key={m.label}
                 onClick={() => navigate(m.route)}
-                className="flex-shrink-0 w-36 bg-card rounded-xl p-3 text-left hover:bg-accent transition-colors"
+                className="bg-card rounded-xl p-3 text-left hover:bg-accent transition-colors min-w-0"
               >
                 <div className="w-8 h-8 rounded-lg flex items-center justify-center mb-2"
                   style={{ backgroundColor: `${m.color}20` }}>
