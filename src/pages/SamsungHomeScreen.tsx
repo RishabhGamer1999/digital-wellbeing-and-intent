@@ -33,9 +33,10 @@ const SamsungHomeScreen = () => {
 
   return (
     <div
-      className="min-h-full flex flex-col relative overflow-hidden"
+      className="flex flex-col relative overflow-hidden"
       style={{
         background: "linear-gradient(180deg, #050A1A 0%, #0D1B3E 60%, #0A1428 100%)",
+        minHeight: "calc(100vh - 80px)",
       }}
     >
       {/* Aurora glow effect */}
