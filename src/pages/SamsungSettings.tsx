@@ -8,7 +8,7 @@ const settingsItems = [
   { id: "notifications", label: "Notifications", subtitle: "Status bar, Do not disturb", icon: Bell },
   { id: "display", label: "Display", subtitle: "Brightness, Eye comfort shield", icon: Sun },
   { id: "battery", label: "Battery", subtitle: "81%", icon: Battery },
-  { id: "digital_wellbeing", label: "Digital Wellbeing & Parental Controls", subtitle: "Screen time, App timers", icon: Sprout, highlighted: true },
+  { id: "digital_wellbeing", label: "Digital Wellbeing & Behavioral Insights", subtitle: "Screen time, App timers", icon: Sprout, highlighted: true },
 ];
 
 const SamsungSettings = () => {

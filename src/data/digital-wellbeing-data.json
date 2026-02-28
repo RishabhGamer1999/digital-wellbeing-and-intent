@@ -26,7 +26,7 @@
             { "id": "notifications", "label": "Notifications", "icon": "bell", "subtitle": "Status bar, Do not disturb" },
             { "id": "display", "label": "Display", "icon": "sun", "subtitle": "Brightness, Eye comfort shield" },
             { "id": "battery", "label": "Battery", "icon": "battery", "subtitle": "81%" },
-            { "id": "digital_wellbeing", "label": "Digital Wellbeing & Parental Controls", "icon": "sprout", "subtitle": "Screen time, App timers", "highlighted": true }
+            { "id": "digital_wellbeing", "label": "Digital Wellbeing & Behavioral Insights", "icon": "sprout", "subtitle": "Screen time, App timers", "highlighted": true }
           ]
         }
       ]
