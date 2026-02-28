@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceLine, ReferenceDot,
 } from "recharts";
-import data from "@/data/mindmotion-data.json";
+import data from "@/data/digital-wellbeing-data.json";
 
-const screen = data.screens[1] as any;
+const screen = data.screens[2] as any;
 const meta = screen.components.find((c: any) => c.type === "session_header").data;
 const graph = screen.components.find((c: any) => c.type === "line_graph");
 
@@ -36,7 +36,7 @@ const SessionDetail = () => {
     <div className="space-y-6">
       {/* Back + header */}
       <div className="flex items-center justify-between">
-        <button onClick={() => navigate("/")} className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
+        <button onClick={() => navigate("/intent-spectrum")} className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
           <ArrowLeft className="w-4 h-4" /> Back
         </button>
         <button onClick={() => navigate("/settings/habits")} className="text-muted-foreground hover:text-foreground transition-colors">

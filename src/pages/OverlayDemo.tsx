@@ -2,9 +2,9 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Settings, Heart, MessageCircle, Share2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import data from "@/data/mindmotion-data.json";
+import data from "@/data/digital-wellbeing-data.json";
 
-const screen = data.screens[4] as any;
+const screen = data.screens[6] as any;
 const feedItems = screen.components.find((c: any) => c.type === "social_feed").feed_items;
 const phases = screen.components.find((c: any) => c.type === "scroll_simulation").phases;
 const toast = screen.components.find((c: any) => c.type === "toast");

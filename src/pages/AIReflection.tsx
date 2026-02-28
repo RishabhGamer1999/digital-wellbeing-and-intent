@@ -2,9 +2,9 @@ import { useState } from "react";
 import { ArrowLeft, Send, ThumbsUp, ThumbsDown, Lightbulb } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import data from "@/data/mindmotion-data.json";
+import data from "@/data/digital-wellbeing-data.json";
 
-const screen = data.screens[2] as any;
+const screen = data.screens[3] as any;
 const chips = screen.components.find((c: any) => c.type === "chips_row").chips;
 const initialMessages = screen.components.find((c: any) => c.type === "chat_list").messages;
 

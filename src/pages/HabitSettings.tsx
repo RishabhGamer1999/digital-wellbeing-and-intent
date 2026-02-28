@@ -4,9 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Switch } from "@/components/ui/switch";
 import { Slider } from "@/components/ui/slider";
-import data from "@/data/mindmotion-data.json";
+import data from "@/data/digital-wellbeing-data.json";
 
-const screen = data.screens[3] as any;
+const screen = data.screens[5] as any;
 const viscousSection = screen.components.find((c: any) => c.id === "viscous_scrolling_section");
 const frictionSlider = screen.components.find((c: any) => c.type === "slider");
 const hapticToggle = screen.components.find((c: any) => c.id === "haptic_cushioning_toggle");

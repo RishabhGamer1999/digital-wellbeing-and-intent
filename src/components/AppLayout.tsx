@@ -1,62 +1,69 @@
-import { NavLink, Outlet } from "react-router-dom";
-import { Activity, MessageCircle, Settings, Layers } from "lucide-react";
+import { NavLink, Outlet, useLocation } from "react-router-dom";
+import { Activity, MessageCircle, Settings, Layers, Sprout } from "lucide-react";
 import { motion } from "framer-motion";
+import SamsungStatusBar from "./SamsungStatusBar";
+import AndroidNavBar from "./AndroidNavBar";
 
 const navItems = [
-  { to: "/", icon: Activity, label: "Dashboard" },
+  { to: "/intent-spectrum", icon: Activity, label: "Dashboard" },
   { to: "/ai-reflection", icon: MessageCircle, label: "Reflect" },
   { to: "/settings/habits", icon: Settings, label: "Settings" },
   { to: "/overlay/demo", icon: Layers, label: "Overlay" },
 ];
 
 const AppLayout = () => {
+  const location = useLocation();
+  const isSettingsOrLanding = location.pathname === "/" || location.pathname === "/digital-wellbeing";
+  const showBottomNav = !isSettingsOrLanding;
+
   return (
-    <div className="min-h-screen bg-background flex flex-col">
-      {/* Header */}
-      <header className="border-b border-border px-6 py-4 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center">
-            <Activity className="w-4 h-4 text-primary" />
-          </div>
-          <h1 className="text-lg font-semibold text-foreground tracking-tight">MindMotion</h1>
-        </div>
-        <span className="text-xs text-muted-foreground font-mono">Feb 28, 2026</span>
-      </header>
+    <div className="min-h-screen bg-[#1C1C1E] flex flex-col">
+      {/* Samsung Status Bar */}
+      <SamsungStatusBar />
 
       {/* Main content */}
       <main className="flex-1 overflow-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.3 }}
-          className="max-w-4xl mx-auto px-4 py-6"
-        >
+        {isSettingsOrLanding ? (
           <Outlet />
-        </motion.div>
+        ) : (
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+            className="max-w-4xl mx-auto px-4 py-6"
+          >
+            <Outlet />
+          </motion.div>
+        )}
       </main>
 
-      {/* Bottom nav */}
-      <nav className="border-t border-border bg-card/80 backdrop-blur-md">
-        <div className="max-w-4xl mx-auto flex justify-around py-2">
-          {navItems.map(({ to, icon: Icon, label }) => (
-            <NavLink
-              key={to}
-              to={to}
-              end={to === "/"}
-              className={({ isActive }) =>
-                `flex flex-col items-center gap-1 px-4 py-2 rounded-lg transition-colors ${
-                  isActive
-                    ? "text-primary"
-                    : "text-muted-foreground hover:text-foreground"
-                }`
-              }
-            >
-              <Icon className="w-5 h-5" />
-              <span className="text-[10px] font-medium">{label}</span>
-            </NavLink>
-          ))}
-        </div>
-      </nav>
+      {/* Bottom nav for inner screens */}
+      {showBottomNav && (
+        <nav className="border-t border-[#2C2C2E] bg-[#1C1C1E]/90 backdrop-blur-md">
+          <div className="max-w-4xl mx-auto flex justify-around py-2">
+            {navItems.map(({ to, icon: Icon, label }) => (
+              <NavLink
+                key={to}
+                to={to}
+                end={to === "/intent-spectrum"}
+                className={({ isActive }) =>
+                  `flex flex-col items-center gap-1 px-4 py-2 rounded-lg transition-colors ${
+                    isActive
+                      ? "text-[#4CAF50]"
+                      : "text-[#888] hover:text-[#ccc]"
+                  }`
+                }
+              >
+                <Icon className="w-5 h-5" />
+                <span className="text-[10px] font-medium">{label}</span>
+              </NavLink>
+            ))}
+          </div>
+        </nav>
+      )}
+
+      {/* Android Navigation Bar */}
+      <AndroidNavBar />
     </div>
   );
 };

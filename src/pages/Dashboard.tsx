@@ -1,9 +1,9 @@
-import data from "@/data/mindmotion-data.json";
+import data from "@/data/digital-wellbeing-data.json";
 import IntentTimeline from "@/components/IntentTimeline";
 import AlertCard from "@/components/AlertCard";
 import StatsBar from "@/components/StatsBar";
 
-const screen = data.screens[0];
+const screen = data.screens[1];
 const timeline = screen.components.find((c: any) => c.type === "timeline") as any;
 const alert = screen.components.find((c: any) => c.type === "alert_card") as any;
 const stats = screen.components.find((c: any) => c.type === "stats_bar") as any;
