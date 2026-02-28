@@ -7,6 +7,7 @@ interface TimelineSlot {
   color: string;
   dominant_app: string;
   session_ids: string[];
+  movement_state?: string;
 }
 
 const stateColorMap: Record<string, string> = {
@@ -48,7 +49,11 @@ const IntentTimeline = ({ slots }: { slots: TimelineSlot[] }) => {
               } ${isActive ? "hover:brightness-125" : "opacity-40"}`}
               onClick={() => {
                 if (slot.session_ids[0]) {
-                  navigate(`/session/${slot.session_ids[0]}`);
+                  if (slot.state === "high_tension" && slot.movement_state === "walking") {
+                    navigate("/movement-activity");
+                  } else {
+                    navigate(`/session/${slot.session_ids[0]}`);
+                  }
                 }
               }}
               title={`${slot.hour}:00 — ${slot.dominant_app} (${slot.state})`}

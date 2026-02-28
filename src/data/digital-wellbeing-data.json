@@ -41,30 +41,30 @@
           "type": "timeline",
           "label": "Today's Intent Spectrum",
           "slots": [
-            { "hour": 0, "state": "relaxed", "color": "#4CAF50", "dominant_app": "Clock", "session_ids": [] },
-            { "hour": 1, "state": "relaxed", "color": "#4CAF50", "dominant_app": "Clock", "session_ids": [] },
-            { "hour": 2, "state": "relaxed", "color": "#4CAF50", "dominant_app": "Clock", "session_ids": [] },
-            { "hour": 3, "state": "relaxed", "color": "#4CAF50", "dominant_app": "Clock", "session_ids": [] },
-            { "hour": 4, "state": "relaxed", "color": "#4CAF50", "dominant_app": "Clock", "session_ids": [] },
-            { "hour": 5, "state": "relaxed", "color": "#4CAF50", "dominant_app": "Clock", "session_ids": [] },
-            { "hour": 6, "state": "neutral", "color": "#9E9E9E", "dominant_app": "Gmail", "session_ids": ["sess_060"] },
-            { "hour": 7, "state": "focused", "color": "#8BC34A", "dominant_app": "Notion", "session_ids": ["sess_070"] },
-            { "hour": 8, "state": "focused", "color": "#8BC34A", "dominant_app": "Notion", "session_ids": ["sess_080"] },
-            { "hour": 9, "state": "focused", "color": "#8BC34A", "dominant_app": "Slack", "session_ids": ["sess_090"] },
-            { "hour": 10, "state": "neutral", "color": "#9E9E9E", "dominant_app": "Chrome", "session_ids": ["sess_100"] },
-            { "hour": 11, "state": "focused", "color": "#8BC34A", "dominant_app": "Notion", "session_ids": ["sess_110"] },
-            { "hour": 12, "state": "neutral", "color": "#9E9E9E", "dominant_app": "YouTube", "session_ids": ["sess_120"] },
-            { "hour": 13, "state": "relaxed", "color": "#4CAF50", "dominant_app": "Spotify", "session_ids": ["sess_130"] },
-            { "hour": 14, "state": "focused", "color": "#8BC34A", "dominant_app": "Slack", "session_ids": ["sess_140"] },
-            { "hour": 15, "state": "focused", "color": "#8BC34A", "dominant_app": "Chrome", "session_ids": ["sess_150"] },
-            { "hour": 16, "state": "elevated", "color": "#FF9800", "dominant_app": "Twitter", "session_ids": ["sess_160"] },
-            { "hour": 17, "state": "neutral", "color": "#9E9E9E", "dominant_app": "Maps", "session_ids": ["sess_170"] },
-            { "hour": 18, "state": "relaxed", "color": "#4CAF50", "dominant_app": "Spotify", "session_ids": ["sess_180"] },
-            { "hour": 19, "state": "neutral", "color": "#9E9E9E", "dominant_app": "YouTube", "session_ids": ["sess_190"] },
-            { "hour": 20, "state": "elevated", "color": "#FF9800", "dominant_app": "Reddit", "session_ids": ["sess_200"] },
-            { "hour": 21, "state": "elevated", "color": "#FF9800", "dominant_app": "Reddit", "session_ids": ["sess_210"] },
-            { "hour": 22, "state": "high_tension", "color": "#F44336", "dominant_app": "Instagram", "session_ids": ["sess_2200_instagram"] },
-            { "hour": 23, "state": "high_tension", "color": "#F44336", "dominant_app": "Instagram", "session_ids": ["sess_2200_instagram"] }
+            { "hour": 0, "state": "relaxed", "color": "#4CAF50", "dominant_app": "Clock", "session_ids": [], "movement_state": "sitting" },
+            { "hour": 1, "state": "relaxed", "color": "#4CAF50", "dominant_app": "Clock", "session_ids": [], "movement_state": "sitting" },
+            { "hour": 2, "state": "relaxed", "color": "#4CAF50", "dominant_app": "Clock", "session_ids": [], "movement_state": "sitting" },
+            { "hour": 3, "state": "relaxed", "color": "#4CAF50", "dominant_app": "Clock", "session_ids": [], "movement_state": "sitting" },
+            { "hour": 4, "state": "relaxed", "color": "#4CAF50", "dominant_app": "Clock", "session_ids": [], "movement_state": "sitting" },
+            { "hour": 5, "state": "relaxed", "color": "#4CAF50", "dominant_app": "Clock", "session_ids": [], "movement_state": "sitting" },
+            { "hour": 6, "state": "neutral", "color": "#9E9E9E", "dominant_app": "Gmail", "session_ids": ["sess_060"], "movement_state": "sitting" },
+            { "hour": 7, "state": "focused", "color": "#8BC34A", "dominant_app": "Notion", "session_ids": ["sess_070"], "movement_state": "sitting" },
+            { "hour": 8, "state": "focused", "color": "#8BC34A", "dominant_app": "Notion", "session_ids": ["sess_080"], "movement_state": "walking" },
+            { "hour": 9, "state": "focused", "color": "#8BC34A", "dominant_app": "Slack", "session_ids": ["sess_090"], "movement_state": "sitting" },
+            { "hour": 10, "state": "neutral", "color": "#9E9E9E", "dominant_app": "Chrome", "session_ids": ["sess_100"], "movement_state": "sitting" },
+            { "hour": 11, "state": "focused", "color": "#8BC34A", "dominant_app": "Notion", "session_ids": ["sess_110"], "movement_state": "sitting" },
+            { "hour": 12, "state": "neutral", "color": "#9E9E9E", "dominant_app": "YouTube", "session_ids": ["sess_120"], "movement_state": "sitting" },
+            { "hour": 13, "state": "relaxed", "color": "#4CAF50", "dominant_app": "Spotify", "session_ids": ["sess_130"], "movement_state": "walking" },
+            { "hour": 14, "state": "focused", "color": "#8BC34A", "dominant_app": "Slack", "session_ids": ["sess_140"], "movement_state": "sitting" },
+            { "hour": 15, "state": "focused", "color": "#8BC34A", "dominant_app": "Chrome", "session_ids": ["sess_150"], "movement_state": "sitting" },
+            { "hour": 16, "state": "elevated", "color": "#FF9800", "dominant_app": "Twitter", "session_ids": ["sess_160"], "movement_state": "walking" },
+            { "hour": 17, "state": "neutral", "color": "#9E9E9E", "dominant_app": "Maps", "session_ids": ["sess_170"], "movement_state": "in_transit" },
+            { "hour": 18, "state": "relaxed", "color": "#4CAF50", "dominant_app": "Spotify", "session_ids": ["sess_180"], "movement_state": "sitting" },
+            { "hour": 19, "state": "neutral", "color": "#9E9E9E", "dominant_app": "YouTube", "session_ids": ["sess_190"], "movement_state": "sitting" },
+            { "hour": 20, "state": "elevated", "color": "#FF9800", "dominant_app": "Reddit", "session_ids": ["sess_200"], "movement_state": "walking" },
+            { "hour": 21, "state": "elevated", "color": "#FF9800", "dominant_app": "Reddit", "session_ids": ["sess_210"], "movement_state": "sitting" },
+            { "hour": 22, "state": "high_tension", "color": "#F44336", "dominant_app": "Instagram", "session_ids": ["sess_2200_instagram"], "movement_state": "walking" },
+            { "hour": 23, "state": "high_tension", "color": "#F44336", "dominant_app": "Instagram", "session_ids": ["sess_2200_instagram"], "movement_state": "sitting" }
           ],
           "tap_targets": [
             { "id": "tap_hour_0", "type": "tap_target", "target_hour": 0, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": null } },
@@ -475,6 +475,83 @@
           "position": "top_center",
           "dismiss_action": { "id": "toast_dismiss_btn", "type": "icon_button", "icon": "close", "on_interaction": { "action": "dismiss_toast", "toast_id": "intervention_toast" } },
           "secondary_action": { "id": "toast_settings_btn", "type": "button", "label": "Settings", "style_hint": "text_button_on_pill", "on_interaction": { "action": "navigate", "target": "habit_settings", "screen": "screen_5" } }
+        }
+      ]
+    },
+    {
+      "id": "screen_7",
+      "title": "Movement & Screen Activity",
+      "subtitle": "Zombie Walking Monitor",
+      "route": "/digital-wellbeing/movement-activity",
+      "entry_points": [
+        { "source": "screen_1_timeline_tap", "condition": "slot.movement_state === 'walking' && slot.state === 'high_tension'", "transition": "slide_up" },
+        { "source": "screen_5_toast_intercept", "condition": "movement_state === 'walking' && trigger_event === 'velocity_threshold_exceeded'", "toast_text": "Distracted walking detected. Tap to review.", "transition": "deep_link" },
+        { "source": "screen_4_settings_link", "label": "View Movement History", "parent_toggle": "in_transit_protections", "transition": "slide_left" }
+      ],
+      "components": [
+        {
+          "id": "context_filter_pills",
+          "type": "chip_toggle_group",
+          "default_active": "walking",
+          "chips": [
+            { "id": "filter_sitting", "type": "chip", "label": "Sitting", "value": "sitting" },
+            { "id": "filter_walking", "type": "chip", "label": "Walking", "value": "walking", "active": true },
+            { "id": "filter_in_transit", "type": "chip", "label": "In Transit", "value": "in_transit" }
+          ]
+        },
+        {
+          "id": "dual_axis_graph",
+          "type": "dual_axis_line_graph",
+          "x_axis": { "type": "timestamp", "label": "Time", "range_start": "2026-02-28T08:15:00Z", "range_end": "2026-02-28T09:02:00Z" },
+          "y_axis_left": { "key": "step_cadence", "label": "Step Cadence (steps/min)", "unit": "steps/min", "color": "#4CAF50", "range_min": 0, "range_max": 140 },
+          "y_axis_right": { "key": "swipe_velocity", "label": "Swipe Velocity (px/s)", "unit": "px/s", "color": "#FF9800", "range_min": 0, "range_max": 1000 },
+          "danger_zone": { "id": "danger_zone_highlight", "label": "Distracted Walking Window", "condition": "step_cadence >= 60 && step_cadence <= 110 && swipe_velocity > 400", "fill_color": "rgba(244, 67, 54, 0.15)", "border_color": "#F44336", "border_style": "dashed" },
+          "data_points": [
+            { "timestamp": "2026-02-28T08:15:00Z", "step_cadence": 0, "swipe_velocity": 0, "movement_state": "sitting" },
+            { "timestamp": "2026-02-28T08:17:30Z", "step_cadence": 12, "swipe_velocity": 185, "movement_state": "sitting" },
+            { "timestamp": "2026-02-28T08:20:00Z", "step_cadence": 45, "swipe_velocity": 220, "movement_state": "walking" },
+            { "timestamp": "2026-02-28T08:22:30Z", "step_cadence": 78, "swipe_velocity": 310, "movement_state": "walking" },
+            { "timestamp": "2026-02-28T08:25:00Z", "step_cadence": 88, "swipe_velocity": 480, "movement_state": "walking", "danger_zone": true },
+            { "timestamp": "2026-02-28T08:27:30Z", "step_cadence": 92, "swipe_velocity": 620, "movement_state": "walking", "danger_zone": true },
+            { "timestamp": "2026-02-28T08:30:00Z", "step_cadence": 95, "swipe_velocity": 710, "movement_state": "walking", "danger_zone": true },
+            { "timestamp": "2026-02-28T08:32:30Z", "step_cadence": 90, "swipe_velocity": 834, "movement_state": "walking", "danger_zone": true },
+            { "timestamp": "2026-02-28T08:35:00Z", "step_cadence": 86, "swipe_velocity": 760, "movement_state": "walking", "danger_zone": true },
+            { "timestamp": "2026-02-28T08:37:30Z", "step_cadence": 80, "swipe_velocity": 590, "movement_state": "walking", "danger_zone": true },
+            { "timestamp": "2026-02-28T08:40:00Z", "step_cadence": 70, "swipe_velocity": 420, "movement_state": "walking", "danger_zone": true },
+            { "timestamp": "2026-02-28T08:42:30Z", "step_cadence": 60, "swipe_velocity": 380, "movement_state": "walking" },
+            { "timestamp": "2026-02-28T08:45:00Z", "step_cadence": 30, "swipe_velocity": 290, "movement_state": "walking" },
+            { "timestamp": "2026-02-28T08:47:30Z", "step_cadence": 88, "swipe_velocity": 510, "movement_state": "walking", "danger_zone": true },
+            { "timestamp": "2026-02-28T08:50:00Z", "step_cadence": 94, "swipe_velocity": 670, "movement_state": "walking", "danger_zone": true },
+            { "timestamp": "2026-02-28T08:52:30Z", "step_cadence": 91, "swipe_velocity": 720, "movement_state": "walking", "danger_zone": true },
+            { "timestamp": "2026-02-28T08:55:00Z", "step_cadence": 85, "swipe_velocity": 490, "movement_state": "walking", "danger_zone": true },
+            { "timestamp": "2026-02-28T08:57:30Z", "step_cadence": 50, "swipe_velocity": 240, "movement_state": "walking" },
+            { "timestamp": "2026-02-28T09:00:00Z", "step_cadence": 110, "swipe_velocity": 820, "movement_state": "in_transit", "danger_zone": true },
+            { "timestamp": "2026-02-28T09:02:00Z", "step_cadence": 115, "swipe_velocity": 640, "movement_state": "in_transit", "danger_zone": true }
+          ],
+          "spike_events": [
+            { "id": "zombie_spike_1", "timestamp": "2026-02-28T08:32:30Z", "annotation": "Peak distracted walking — 834 px/s while walking at 90 steps/min" },
+            { "id": "zombie_spike_2", "timestamp": "2026-02-28T08:52:30Z", "annotation": "Second distracted burst — resumed scrolling at full walking pace" },
+            { "id": "zombie_spike_3", "timestamp": "2026-02-28T09:00:00Z", "annotation": "In-transit scroll event — possible road crossing detected" }
+          ]
+        },
+        {
+          "id": "summary_stat_cards",
+          "type": "stat_card_row",
+          "cards": [
+            { "id": "stat_distracted_walk_time", "label": "Distracted Walk Time", "value": "18 min", "color": "#F44336" },
+            { "id": "stat_peak_scroll_walking", "label": "Peak Scroll While Walking", "value": "834 px/s", "color": "#FF9800" },
+            { "id": "stat_danger_zone_events", "label": "Danger Zone Events", "value": "3", "color": "#F44336" }
+          ]
+        },
+        {
+          "id": "safety_intercept_cta",
+          "type": "cta_card",
+          "style": "warning_elevated",
+          "message": "You scrolled for 18 minutes while walking yesterday. Enable 'Strict Viscous Scrolling' while moving to keep your eyes up?",
+          "actions": [
+            { "id": "cta_enable_strict_viscous", "label": "Enable Now", "style_hint": "primary_filled_danger", "on_interaction": { "action": "update_setting", "key": "strict_viscous_while_walking", "value": true, "then_navigate": { "target": "habit_settings", "screen": "screen_4" } } },
+            { "id": "cta_dismiss_zombie_intercept", "label": "Not Now", "style_hint": "ghost_text", "on_interaction": { "action": "dismiss_cta", "cta_id": "zombie_walk_intercept" } }
+          ]
         }
       ]
     }
