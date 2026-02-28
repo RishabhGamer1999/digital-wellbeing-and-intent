@@ -39,8 +39,8 @@ const SamsungSettings = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: i * 0.04 }}
               onClick={() => {
-                if (item.id === "digital_wellbeing") {
-                  navigate("/digital-wellbeing");
+              if (item.id === "digital_wellbeing") {
+                  navigate("/intent-spectrum");
                 }
               }}
               className={`w-full flex items-center gap-4 px-4 py-3.5 text-left transition-colors ${
