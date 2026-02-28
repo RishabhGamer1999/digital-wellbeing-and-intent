@@ -22,7 +22,7 @@ const IntentTimeline = ({ slots }: { slots: TimelineSlot[] }) => {
   const currentHour = 23; // simulated
 
   return (
-    <div className="space-y-3">
+    <div className="space-y-3 overflow-hidden">
       <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
         Today's Intent Spectrum
       </h2>
