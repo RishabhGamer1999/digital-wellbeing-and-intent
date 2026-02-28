@@ -17,7 +17,7 @@ const AppLayout = () => {
   const showBottomNav = !isSettingsOrLanding;
 
   return (
-    <div className="min-h-screen max-w-[430px] mx-auto bg-[#1C1C1E] flex flex-col overflow-x-hidden">
+    <div className="min-h-screen max-w-[430px] mx-auto bg-background flex flex-col overflow-x-hidden shadow-xl">
       {/* Samsung Status Bar */}
       <SamsungStatusBar />
 
@@ -39,7 +39,7 @@ const AppLayout = () => {
 
       {/* Bottom nav for inner screens */}
       {showBottomNav && (
-        <nav className="border-t border-[#2C2C2E] bg-[#1C1C1E]/90 backdrop-blur-md">
+        <nav className="border-t border-border bg-card/90 backdrop-blur-md">
           <div className="max-w-4xl mx-auto flex justify-around py-2">
             {navItems.map(({ to, icon: Icon, label, isAI }) => (
               <NavLink
@@ -49,10 +49,10 @@ const AppLayout = () => {
                 className={({ isActive }) =>
                   `flex flex-col items-center gap-1 px-4 py-2 rounded-lg transition-colors ${
                     isAI
-                      ? isActive ? "text-[#4CAF50]" : "text-[#4CAF50]/70 hover:text-[#4CAF50]"
+                      ? isActive ? "text-primary" : "text-primary/60 hover:text-primary"
                       : isActive
-                        ? "text-[#4CAF50]"
-                        : "text-[#888] hover:text-[#ccc]"
+                        ? "text-primary"
+                        : "text-muted-foreground hover:text-foreground"
                   }`
                 }
               >

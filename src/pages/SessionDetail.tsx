@@ -76,19 +76,19 @@ const SessionDetail = () => {
         <h3 className="text-sm font-medium text-foreground">Kinetic Deep-Dive</h3>
         <ResponsiveContainer width="100%" height={240}>
           <LineChart data={chartData}>
-            <CartesianGrid strokeDasharray="3 3" stroke="hsl(0 0% 16%)" />
-            <XAxis dataKey="time" tick={{ fontSize: 9, fill: "hsl(0 0% 55%)" }} tickLine={false} axisLine={false} />
-            <YAxis tick={{ fontSize: 9, fill: "hsl(0 0% 55%)" }} tickLine={false} axisLine={false} />
+            <CartesianGrid strokeDasharray="3 3" stroke="hsl(0 0% 88%)" />
+            <XAxis dataKey="time" tick={{ fontSize: 9, fill: "hsl(0 0% 45%)" }} tickLine={false} axisLine={false} />
+            <YAxis tick={{ fontSize: 9, fill: "hsl(0 0% 45%)" }} tickLine={false} axisLine={false} />
             <Tooltip
               contentStyle={{
-                background: "hsl(0 0% 10%)",
-                border: "1px solid hsl(0 0% 16%)",
+                background: "hsl(0 0% 100%)",
+                border: "1px solid hsl(0 0% 88%)",
                 borderRadius: "8px",
                 fontSize: 11,
-                color: "hsl(0 0% 95%)",
+                color: "hsl(0 0% 12%)",
               }}
             />
-            <ReferenceLine y={graph.baseline} stroke="hsl(0 0% 35%)" strokeDasharray="6 3" label={{ value: "Baseline", fill: "hsl(0 0% 45%)", fontSize: 9 }} />
+            <ReferenceLine y={graph.baseline} stroke="hsl(0 0% 70%)" strokeDasharray="6 3" label={{ value: "Baseline", fill: "hsl(0 0% 55%)", fontSize: 9 }} />
             <Line type="monotone" dataKey="velocity" stroke="hsl(36 100% 50%)" strokeWidth={2} dot={false} name="Swipe Velocity (px/s)" />
             <Line type="monotone" dataKey="pressure" stroke="hsl(4 90% 58%)" strokeWidth={2} dot={false} name="Screen Pressure (mN)" />
             {spikes.map((spike, i) => (

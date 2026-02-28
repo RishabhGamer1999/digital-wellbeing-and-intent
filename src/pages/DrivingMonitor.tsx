@@ -128,9 +128,9 @@ const DrivingMonitor = () => {
         <div className="h-48">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={d.speedData} margin={{ top: 5, right: 10, left: -15, bottom: 0 }}>
-              <XAxis dataKey="time" tick={{ fontSize: 9, fill: "hsl(0 0% 55%)" }} tickLine={false} axisLine={false} />
-              <YAxis tick={{ fontSize: 9, fill: "hsl(0 0% 55%)" }} tickLine={false} axisLine={false} domain={[0, 80]} />
-              <Tooltip contentStyle={{ background: "#2C2C2E", border: "none", borderRadius: 8, fontSize: 11 }} labelStyle={{ color: "#999" }} />
+              <XAxis dataKey="time" tick={{ fontSize: 9, fill: "hsl(0 0% 45%)" }} tickLine={false} axisLine={false} />
+              <YAxis tick={{ fontSize: 9, fill: "hsl(0 0% 45%)" }} tickLine={false} axisLine={false} domain={[0, 80]} />
+              <Tooltip contentStyle={{ background: "#fff", border: "1px solid hsl(0 0% 88%)", borderRadius: 8, fontSize: 11 }} labelStyle={{ color: "#555" }} />
               {!isPassenger && d.bands.map((b) => (
                 <ReferenceArea key={b.label} x1={b.x1} x2={b.x2} fill={b.color} strokeOpacity={0} />
               ))}
