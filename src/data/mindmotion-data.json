@@ -1,0 +1,640 @@
+{
+  "prototype_id": "mindmotion_mvp_v1",
+  "app_name": "MindMotion",
+  "theme": {
+    "primary": "#4CAF50",
+    "danger": "#F44336",
+    "warning": "#FF9800",
+    "surface": "#121212",
+    "on_surface": "#FFFFFF"
+  },
+  "screens": [
+    {
+      "id": "screen_1",
+      "title": "Intent Spectrum Dashboard",
+      "route": "/home",
+      "components": [
+        {
+          "id": "daily_timeline",
+          "type": "timeline",
+          "label": "Today's Intent Spectrum",
+          "slots": [
+            { "hour": 0, "state": "relaxed", "color": "#4CAF50", "dominant_app": "Clock", "session_ids": [] },
+            { "hour": 1, "state": "relaxed", "color": "#4CAF50", "dominant_app": "Clock", "session_ids": [] },
+            { "hour": 2, "state": "relaxed", "color": "#4CAF50", "dominant_app": "Clock", "session_ids": [] },
+            { "hour": 3, "state": "relaxed", "color": "#4CAF50", "dominant_app": "Clock", "session_ids": [] },
+            { "hour": 4, "state": "relaxed", "color": "#4CAF50", "dominant_app": "Clock", "session_ids": [] },
+            { "hour": 5, "state": "relaxed", "color": "#4CAF50", "dominant_app": "Clock", "session_ids": [] },
+            { "hour": 6, "state": "neutral", "color": "#9E9E9E", "dominant_app": "Gmail", "session_ids": ["sess_060"] },
+            { "hour": 7, "state": "focused", "color": "#8BC34A", "dominant_app": "Notion", "session_ids": ["sess_070"] },
+            { "hour": 8, "state": "focused", "color": "#8BC34A", "dominant_app": "Notion", "session_ids": ["sess_080"] },
+            { "hour": 9, "state": "focused", "color": "#8BC34A", "dominant_app": "Slack", "session_ids": ["sess_090"] },
+            { "hour": 10, "state": "neutral", "color": "#9E9E9E", "dominant_app": "Chrome", "session_ids": ["sess_100"] },
+            { "hour": 11, "state": "focused", "color": "#8BC34A", "dominant_app": "Notion", "session_ids": ["sess_110"] },
+            { "hour": 12, "state": "neutral", "color": "#9E9E9E", "dominant_app": "YouTube", "session_ids": ["sess_120"] },
+            { "hour": 13, "state": "relaxed", "color": "#4CAF50", "dominant_app": "Spotify", "session_ids": ["sess_130"] },
+            { "hour": 14, "state": "focused", "color": "#8BC34A", "dominant_app": "Slack", "session_ids": ["sess_140"] },
+            { "hour": 15, "state": "focused", "color": "#8BC34A", "dominant_app": "Chrome", "session_ids": ["sess_150"] },
+            { "hour": 16, "state": "elevated", "color": "#FF9800", "dominant_app": "Twitter", "session_ids": ["sess_160"] },
+            { "hour": 17, "state": "neutral", "color": "#9E9E9E", "dominant_app": "Maps", "session_ids": ["sess_170"] },
+            { "hour": 18, "state": "relaxed", "color": "#4CAF50", "dominant_app": "Spotify", "session_ids": ["sess_180"] },
+            { "hour": 19, "state": "neutral", "color": "#9E9E9E", "dominant_app": "YouTube", "session_ids": ["sess_190"] },
+            { "hour": 20, "state": "elevated", "color": "#FF9800", "dominant_app": "Reddit", "session_ids": ["sess_200"] },
+            { "hour": 21, "state": "elevated", "color": "#FF9800", "dominant_app": "Reddit", "session_ids": ["sess_210"] },
+            { "hour": 22, "state": "high_tension", "color": "#F44336", "dominant_app": "Instagram", "session_ids": ["sess_2200_instagram"] },
+            { "hour": 23, "state": "high_tension", "color": "#F44336", "dominant_app": "Instagram", "session_ids": ["sess_2200_instagram"] }
+          ],
+          "tap_targets": [
+            { "id": "tap_hour_0", "type": "tap_target", "target_hour": 0, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": null } },
+            { "id": "tap_hour_1", "type": "tap_target", "target_hour": 1, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": null } },
+            { "id": "tap_hour_2", "type": "tap_target", "target_hour": 2, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": null } },
+            { "id": "tap_hour_3", "type": "tap_target", "target_hour": 3, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": null } },
+            { "id": "tap_hour_4", "type": "tap_target", "target_hour": 4, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": null } },
+            { "id": "tap_hour_5", "type": "tap_target", "target_hour": 5, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": null } },
+            { "id": "tap_hour_6", "type": "tap_target", "target_hour": 6, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": "sess_060" } },
+            { "id": "tap_hour_7", "type": "tap_target", "target_hour": 7, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": "sess_070" } },
+            { "id": "tap_hour_8", "type": "tap_target", "target_hour": 8, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": "sess_080" } },
+            { "id": "tap_hour_9", "type": "tap_target", "target_hour": 9, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": "sess_090" } },
+            { "id": "tap_hour_10", "type": "tap_target", "target_hour": 10, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": "sess_100" } },
+            { "id": "tap_hour_11", "type": "tap_target", "target_hour": 11, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": "sess_110" } },
+            { "id": "tap_hour_12", "type": "tap_target", "target_hour": 12, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": "sess_120" } },
+            { "id": "tap_hour_13", "type": "tap_target", "target_hour": 13, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": "sess_130" } },
+            { "id": "tap_hour_14", "type": "tap_target", "target_hour": 14, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": "sess_140" } },
+            { "id": "tap_hour_15", "type": "tap_target", "target_hour": 15, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": "sess_150" } },
+            { "id": "tap_hour_16", "type": "tap_target", "target_hour": 16, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": "sess_160" } },
+            { "id": "tap_hour_17", "type": "tap_target", "target_hour": 17, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": "sess_170" } },
+            { "id": "tap_hour_18", "type": "tap_target", "target_hour": 18, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": "sess_180" } },
+            { "id": "tap_hour_19", "type": "tap_target", "target_hour": 19, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": "sess_190" } },
+            { "id": "tap_hour_20", "type": "tap_target", "target_hour": 20, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": "sess_200" } },
+            { "id": "tap_hour_21", "type": "tap_target", "target_hour": 21, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": "sess_210" } },
+            { "id": "tap_hour_22", "type": "tap_target", "target_hour": 22, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": "sess_2200_instagram" } },
+            { "id": "tap_hour_23", "type": "tap_target", "target_hour": 23, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": "sess_2200_instagram" } }
+          ]
+        },
+        {
+          "id": "alert_card_high_tension",
+          "type": "alert_card",
+          "severity": "high_tension",
+          "style_hint": "elevated_card_danger_border",
+          "data": {
+            "app_name": "Instagram",
+            "duration_minutes": 47,
+            "trigger_label": "Late-night doomscroll detected",
+            "scroll_velocity_avg": 612,
+            "cta_action": {
+              "id": "alert_cta_btn",
+              "type": "button",
+              "label": "View Session Details",
+              "on_interaction": {
+                "action": "navigate",
+                "target": "session_detail",
+                "session_id": "sess_2200_instagram",
+                "screen": "screen_2"
+              }
+            }
+          }
+        },
+        {
+          "id": "summary_stats_bar",
+          "type": "stats_bar",
+          "style_hint": "horizontal_chips_row",
+          "stats": {
+            "total_screen_time": "6h 23m",
+            "high_tension_percentage": 18,
+            "focused_percentage": 34
+          }
+        }
+      ]
+    },
+    {
+      "id": "screen_2",
+      "title": "Kinetic Deep-Dive",
+      "route": "/session/sess_2200_instagram",
+      "components": [
+        {
+          "id": "session_metadata",
+          "type": "session_header",
+          "data": {
+            "session_id": "sess_2200_instagram",
+            "app": "Instagram",
+            "start_time": "2026-02-28T22:04:11Z",
+            "end_time": "2026-02-28T22:51:03Z",
+            "duration_minutes": 47,
+            "detected_state": "high_tension"
+          }
+        },
+        {
+          "id": "kinetic_line_graph",
+          "type": "line_graph",
+          "baseline": 280,
+          "series": {
+            "swipe_velocity": {
+              "unit": "px/s",
+              "color": "#FF9800",
+              "data_points": [
+                { "timestamp": "2026-02-28T22:04:11Z", "value": 210, "above_baseline": false },
+                { "timestamp": "2026-02-28T22:06:29Z", "value": 235, "above_baseline": false },
+                { "timestamp": "2026-02-28T22:08:47Z", "value": 258, "above_baseline": false },
+                { "timestamp": "2026-02-28T22:11:05Z", "value": 290, "above_baseline": true },
+                { "timestamp": "2026-02-28T22:13:23Z", "value": 342, "above_baseline": true },
+                { "timestamp": "2026-02-28T22:15:41Z", "value": 389, "above_baseline": true },
+                { "timestamp": "2026-02-28T22:17:59Z", "value": 410, "above_baseline": true },
+                { "timestamp": "2026-02-28T22:20:17Z", "value": 375, "above_baseline": true },
+                { "timestamp": "2026-02-28T22:22:35Z", "value": 455, "above_baseline": true },
+                { "timestamp": "2026-02-28T22:24:53Z", "value": 620, "above_baseline": true },
+                { "timestamp": "2026-02-28T22:27:11Z", "value": 590, "above_baseline": true },
+                { "timestamp": "2026-02-28T22:29:29Z", "value": 530, "above_baseline": true },
+                { "timestamp": "2026-02-28T22:31:47Z", "value": 570, "above_baseline": true },
+                { "timestamp": "2026-02-28T22:34:05Z", "value": 680, "above_baseline": true },
+                { "timestamp": "2026-02-28T22:36:23Z", "value": 730, "above_baseline": true },
+                { "timestamp": "2026-02-28T22:38:41Z", "value": 810, "above_baseline": true },
+                { "timestamp": "2026-02-28T22:40:59Z", "value": 870, "above_baseline": true },
+                { "timestamp": "2026-02-28T22:43:17Z", "value": 950, "above_baseline": true },
+                { "timestamp": "2026-02-28T22:45:35Z", "value": 890, "above_baseline": true },
+                { "timestamp": "2026-02-28T22:51:03Z", "value": 740, "above_baseline": true }
+              ]
+            },
+            "screen_pressure": {
+              "unit": "mN",
+              "color": "#F44336",
+              "data_points": [
+                { "timestamp": "2026-02-28T22:04:11Z", "value": 140, "above_baseline": false },
+                { "timestamp": "2026-02-28T22:06:29Z", "value": 150, "above_baseline": false },
+                { "timestamp": "2026-02-28T22:08:47Z", "value": 158, "above_baseline": false },
+                { "timestamp": "2026-02-28T22:11:05Z", "value": 165, "above_baseline": false },
+                { "timestamp": "2026-02-28T22:13:23Z", "value": 175, "above_baseline": false },
+                { "timestamp": "2026-02-28T22:15:41Z", "value": 190, "above_baseline": false },
+                { "timestamp": "2026-02-28T22:17:59Z", "value": 205, "above_baseline": true },
+                { "timestamp": "2026-02-28T22:20:17Z", "value": 198, "above_baseline": false },
+                { "timestamp": "2026-02-28T22:22:35Z", "value": 240, "above_baseline": true },
+                { "timestamp": "2026-02-28T22:24:53Z", "value": 310, "above_baseline": true },
+                { "timestamp": "2026-02-28T22:27:11Z", "value": 290, "above_baseline": true },
+                { "timestamp": "2026-02-28T22:29:29Z", "value": 275, "above_baseline": true },
+                { "timestamp": "2026-02-28T22:31:47Z", "value": 288, "above_baseline": true },
+                { "timestamp": "2026-02-28T22:34:05Z", "value": 330, "above_baseline": true },
+                { "timestamp": "2026-02-28T22:36:23Z", "value": 360, "above_baseline": true },
+                { "timestamp": "2026-02-28T22:38:41Z", "value": 395, "above_baseline": true },
+                { "timestamp": "2026-02-28T22:40:59Z", "value": 420, "above_baseline": true },
+                { "timestamp": "2026-02-28T22:43:17Z", "value": 470, "above_baseline": true },
+                { "timestamp": "2026-02-28T22:45:35Z", "value": 445, "above_baseline": true },
+                { "timestamp": "2026-02-28T22:51:03Z", "value": 380, "above_baseline": true }
+              ]
+            }
+          },
+          "spike_events": [
+            {
+              "id": "spike_1",
+              "timestamp": "2026-02-28T22:24:53Z",
+              "annotation": "Rapid scroll burst — 3× velocity baseline",
+              "affected_series": ["swipe_velocity", "screen_pressure"]
+            },
+            {
+              "id": "spike_2",
+              "timestamp": "2026-02-28T22:43:17Z",
+              "annotation": "Peak tension — sustained high pressure + max swipe velocity",
+              "affected_series": ["swipe_velocity", "screen_pressure"]
+            }
+          ]
+        },
+        {
+          "id": "cta_ask_ai",
+          "type": "button",
+          "label": "Ask AI why this happened",
+          "style_hint": "primary_filled",
+          "on_interaction": {
+            "action": "navigate",
+            "target": "ai_reflection",
+            "screen": "screen_3",
+            "context_session_id": "sess_2200_instagram"
+          }
+        },
+        {
+          "id": "cta_reflect",
+          "type": "button",
+          "label": "Reflect on this session",
+          "style_hint": "secondary_outlined",
+          "on_interaction": {
+            "action": "navigate",
+            "target": "ai_reflection",
+            "screen": "screen_3",
+            "mode": "reflect",
+            "context_session_id": "sess_2200_instagram"
+          }
+        },
+        {
+          "id": "shortcut_settings",
+          "type": "icon_button",
+          "label": "Open Habit Settings",
+          "icon": "tune",
+          "style_hint": "top_right_appbar_action",
+          "on_interaction": {
+            "action": "navigate",
+            "target": "habit_settings",
+            "screen": "screen_4"
+          }
+        }
+      ]
+    },
+    {
+      "id": "screen_3",
+      "title": "AI Reflection Chat",
+      "route": "/ai-reflection",
+      "components": [
+        {
+          "id": "prompt_chips_row",
+          "type": "chips_row",
+          "chips": [
+            {
+              "id": "chip_drained",
+              "type": "chip",
+              "label": "Why do I feel drained?",
+              "prefill_message": "Why do I feel so drained after that Instagram session?",
+              "on_interaction": {
+                "action": "prefill_input",
+                "value": "Why do I feel so drained after that Instagram session?"
+              }
+            },
+            {
+              "id": "chip_trigger",
+              "type": "chip",
+              "label": "What triggered this?",
+              "prefill_message": "What triggered my doomscrolling behaviour at 10pm?",
+              "on_interaction": {
+                "action": "prefill_input",
+                "value": "What triggered my doomscrolling behaviour at 10pm?"
+              }
+            },
+            {
+              "id": "chip_stressed",
+              "type": "chip",
+              "label": "Was I stressed?",
+              "prefill_message": "Was I stressed during this session based on my sensor data?",
+              "on_interaction": {
+                "action": "prefill_input",
+                "value": "Was I stressed during this session based on my sensor data?"
+              }
+            },
+            {
+              "id": "chip_set_limit",
+              "type": "chip",
+              "label": "Help me set a limit",
+              "prefill_message": "Help me set a screen time limit to prevent this from happening again.",
+              "on_interaction": {
+                "action": "prefill_input",
+                "value": "Help me set a screen time limit to prevent this from happening again."
+              }
+            }
+          ]
+        },
+        {
+          "id": "chat_messages_list",
+          "type": "chat_list",
+          "messages": [
+            {
+              "id": "msg_001",
+              "role": "user",
+              "timestamp": "2026-02-28T23:05:12Z",
+              "content": "Why do I feel so drained after that Instagram session?",
+              "message_type": "text"
+            },
+            {
+              "id": "msg_002",
+              "role": "assistant",
+              "timestamp": "2026-02-28T23:05:15Z",
+              "content": "Looking at your session from 10:04 PM, I can see your swipe velocity climbed from 210 px/s all the way to a peak of 950 px/s over 47 minutes. That kind of escalating pace is a strong signal of compulsive scroll behaviour — your brain was chasing novelty, but the content couldn't keep up.",
+              "message_type": "text",
+              "insight": {
+                "mechanism": "slot_machine_effect",
+                "cited_data": {
+                  "swipe_velocity_start": 210,
+                  "swipe_velocity_peak": 950,
+                  "session_id": "sess_2200_instagram"
+                }
+              }
+            },
+            {
+              "id": "msg_003",
+              "role": "user",
+              "timestamp": "2026-02-28T23:05:58Z",
+              "content": "What triggered my doomscrolling behaviour at 10pm?",
+              "message_type": "text"
+            },
+            {
+              "id": "msg_004",
+              "role": "assistant",
+              "timestamp": "2026-02-28T23:06:02Z",
+              "content": "Your day showed an elevated tension window between 8–9 PM on Reddit, followed by an 8-minute gap before you opened Instagram. Late-night scrolling after prolonged stress often acts as a decompression ritual — except Instagram's variable-reward feed reinforces the loop rather than breaking it.",
+              "message_type": "insight_card",
+              "insight": {
+                "mechanism": "slot_machine_effect",
+                "cited_data": {
+                  "pre_session_tension_app": "Reddit",
+                  "gap_before_session_minutes": 8,
+                  "session_id": "sess_2200_instagram"
+                }
+              },
+              "insight_card": {
+                "title": "The Slot Machine Effect",
+                "body": "Instagram's infinite feed uses variable-reward scheduling — the same mechanism as slot machines. Each swipe is a pull of the lever. Your data shows two clear spike events where your scroll velocity tripled, matching the moments you were hunting for something satisfying but not finding it.",
+                "cited_stat": "Swipe velocity peaked at 950 px/s — 3.4× your personal baseline of 280 px/s"
+              }
+            },
+            {
+              "id": "msg_005",
+              "role": "user",
+              "timestamp": "2026-02-28T23:06:45Z",
+              "content": "Help me set a screen time limit to prevent this from happening again.",
+              "message_type": "text"
+            },
+            {
+              "id": "msg_006",
+              "role": "assistant",
+              "timestamp": "2026-02-28T23:06:48Z",
+              "content": "I'd suggest two interventions: (1) Enable **Viscous Scrolling** on Instagram after 10 PM — this creates physical resistance that breaks the autopilot loop. (2) Set a **30-minute soft cap** with a check-in prompt at the boundary. Based on your history, your tension spikes start around the 22-minute mark, so catching it early gives you real agency. Want me to configure these now?",
+              "message_type": "text",
+              "insight": {
+                "mechanism": "friction_intervention",
+                "cited_data": {
+                  "tension_onset_minute": 22,
+                  "recommended_cap_minutes": 30,
+                  "session_id": "sess_2200_instagram"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "feedback_ui",
+          "type": "message_feedback",
+          "target_message_id": "msg_006",
+          "controls": {
+            "thumbs_up": {
+              "id": "feedback_thumbs_up",
+              "type": "icon_button",
+              "icon": "thumb_up",
+              "on_interaction": {
+                "action": "feedback",
+                "value": "helpful",
+                "message_id": "msg_006"
+              }
+            },
+            "thumbs_down": {
+              "id": "feedback_thumbs_down",
+              "type": "icon_button",
+              "icon": "thumb_down",
+              "on_interaction": {
+                "action": "feedback",
+                "value": "not_helpful",
+                "message_id": "msg_006"
+              }
+            },
+            "correction_chip": {
+              "id": "correction_chip_gaming",
+              "type": "chip",
+              "label": "Actually, I was playing a fast-paced game",
+              "on_interaction": {
+                "action": "retrain_baseline",
+                "correction_context": "gaming_session",
+                "message_id": "msg_006",
+                "session_id": "sess_2200_instagram"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "screen_4",
+      "title": "Habit Resolution Settings",
+      "route": "/settings/habits",
+      "components": [
+        {
+          "id": "viscous_scrolling_section",
+          "type": "settings_section",
+          "label": "Viscous Scrolling",
+          "description": "Applies resistance to scrolling gestures when tension is detected",
+          "app_entries": [
+            {
+              "id": "app_entry_instagram",
+              "type": "toggle_row",
+              "app_id": "com.instagram.android",
+              "app_name": "Instagram",
+              "icon_url": "https://placeholder.mindmotion.app/icons/instagram.png",
+              "viscous_enabled": true,
+              "on_interaction": {
+                "action": "toggle_setting",
+                "key": "viscous_scrolling",
+                "app_id": "com.instagram.android"
+              }
+            },
+            {
+              "id": "app_entry_tiktok",
+              "type": "toggle_row",
+              "app_id": "com.zhiliaoapp.musically",
+              "app_name": "TikTok",
+              "icon_url": "https://placeholder.mindmotion.app/icons/tiktok.png",
+              "viscous_enabled": true,
+              "on_interaction": {
+                "action": "toggle_setting",
+                "key": "viscous_scrolling",
+                "app_id": "com.zhiliaoapp.musically"
+              }
+            },
+            {
+              "id": "app_entry_twitter",
+              "type": "toggle_row",
+              "app_id": "com.twitter.android",
+              "app_name": "Twitter",
+              "icon_url": "https://placeholder.mindmotion.app/icons/twitter.png",
+              "viscous_enabled": false,
+              "on_interaction": {
+                "action": "toggle_setting",
+                "key": "viscous_scrolling",
+                "app_id": "com.twitter.android"
+              }
+            },
+            {
+              "id": "app_entry_reddit",
+              "type": "toggle_row",
+              "app_id": "com.reddit.frontpage",
+              "app_name": "Reddit",
+              "icon_url": "https://placeholder.mindmotion.app/icons/reddit.png",
+              "viscous_enabled": false,
+              "on_interaction": {
+                "action": "toggle_setting",
+                "key": "viscous_scrolling",
+                "app_id": "com.reddit.frontpage"
+              }
+            }
+          ]
+        },
+        {
+          "id": "friction_level_slider",
+          "type": "slider",
+          "label": "Friction Level",
+          "min": 1,
+          "max": 10,
+          "current_value": 7,
+          "labels": ["Gentle", "Firm", "Heavy"],
+          "label_positions": [1, 5, 10],
+          "on_interaction": {
+            "id": "friction_slider_change",
+            "action": "update_setting",
+            "key": "friction_level"
+          }
+        },
+        {
+          "id": "haptic_cushioning_toggle",
+          "type": "toggle_row",
+          "label": "Haptic Cushioning",
+          "description": "Softens system vibrations during detected high-stress periods",
+          "enabled": true,
+          "on_interaction": {
+            "id": "haptic_toggle_change",
+            "action": "toggle_setting",
+            "key": "haptic_cushioning"
+          }
+        },
+        {
+          "id": "time_bound_triggers_section",
+          "type": "settings_section",
+          "label": "Time-Bound Triggers",
+          "enabled": true,
+          "rules": [
+            {
+              "id": "rule_late_night",
+              "type": "trigger_rule",
+              "trigger": "time_of_day",
+              "after": "22:00",
+              "applies_to": ["viscous_scrolling"],
+              "label": "Enable after 10:00 PM",
+              "on_interaction": {
+                "action": "edit_rule",
+                "rule_id": "rule_late_night"
+              }
+            }
+          ],
+          "add_rule_cta": {
+            "id": "add_rule_btn",
+            "type": "button",
+            "label": "+ Add Rule",
+            "style_hint": "text_button_primary",
+            "on_interaction": {
+              "action": "open_add_rule_dialog"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "screen_5",
+      "title": "In-App Overlay — Viscous Scroll Simulation",
+      "route": "/overlay/instagram-feed",
+      "trigger": "contextual",
+      "trigger_condition": "high_tension_detected_during_active_session",
+      "components": [
+        {
+          "id": "simulated_feed",
+          "type": "social_feed",
+          "feed_items": [
+            {
+              "id": "post_001",
+              "user_handle": "@aurora.vibes",
+              "content_type": "image",
+              "placeholder_color": "#B39DDB",
+              "like_count": 2841,
+              "comment_count": 134
+            },
+            {
+              "id": "post_002",
+              "user_handle": "@daily.dose.fitness",
+              "content_type": "video",
+              "placeholder_color": "#80CBC4",
+              "like_count": 11203,
+              "comment_count": 478
+            },
+            {
+              "id": "post_003",
+              "user_handle": "@nightowl.art",
+              "content_type": "image",
+              "placeholder_color": "#FFCC80",
+              "like_count": 892,
+              "comment_count": 61
+            },
+            {
+              "id": "post_004",
+              "user_handle": "@travel.junkie.mk",
+              "content_type": "image",
+              "placeholder_color": "#A5D6A7",
+              "like_count": 5510,
+              "comment_count": 203
+            },
+            {
+              "id": "post_005",
+              "user_handle": "@mindset.unlocked",
+              "content_type": "text",
+              "placeholder_color": "#EF9A9A",
+              "like_count": 3307,
+              "comment_count": 289
+            }
+          ]
+        },
+        {
+          "id": "scroll_simulation",
+          "type": "scroll_simulation",
+          "phases": {
+            "phase_1": {
+              "id": "phase_normal",
+              "label": "Normal scrolling",
+              "duration_ms": 2000,
+              "scroll_resistance": 1.0
+            },
+            "phase_2": {
+              "id": "phase_spike",
+              "label": "Tension spike detected",
+              "duration_ms": 500,
+              "scroll_resistance": 1.0,
+              "trigger_event": "velocity_threshold_exceeded",
+              "velocity_threshold_px_s": 600
+            },
+            "phase_3": {
+              "id": "phase_viscous",
+              "label": "Viscous scrolling engaged",
+              "duration_ms": 5000,
+              "scroll_resistance": 4.5,
+              "drag_multiplier": 3.2
+            }
+          }
+        },
+        {
+          "id": "intervention_toast",
+          "type": "toast",
+          "visible": true,
+          "message": "Tension spike detected. Viscous scrolling engaged to help you ground.",
+          "style": "pill",
+          "position": "top_center",
+          "dismiss_action": {
+            "id": "toast_dismiss_btn",
+            "type": "icon_button",
+            "icon": "close",
+            "on_interaction": {
+              "action": "dismiss_toast",
+              "toast_id": "intervention_toast"
+            }
+          },
+          "secondary_action": {
+            "id": "toast_settings_btn",
+            "type": "button",
+            "label": "Settings",
+            "style_hint": "text_button_on_pill",
+            "on_interaction": {
+              "action": "navigate",
+              "target": "habit_settings",
+              "screen": "screen_4"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
