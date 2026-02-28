@@ -17,7 +17,7 @@ const AppLayout = () => {
   const showBottomNav = !isSettingsOrLanding;
 
   return (
-    <div className="min-h-screen bg-[#1C1C1E] flex flex-col">
+    <div className="min-h-screen max-w-[430px] mx-auto bg-[#1C1C1E] flex flex-col overflow-x-hidden">
       {/* Samsung Status Bar */}
       <SamsungStatusBar />
 
