@@ -98,21 +98,13 @@ const SessionDetail = () => {
         </div>
       </motion.div>
 
-      {/* CTAs */}
-      <div className="flex gap-3">
-        <button
-          onClick={() => navigate("/ai-reflection")}
-          className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl bg-primary text-primary-foreground font-medium text-sm hover:brightness-110 transition-all glow-primary"
-        >
-          <Sparkles className="w-4 h-4" /> Ask AI why
-        </button>
-        <button
-          onClick={() => navigate("/ai-reflection")}
-          className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl border border-border text-foreground font-medium text-sm hover:bg-accent transition-colors"
-        >
-          <BookOpen className="w-4 h-4" /> Reflect
-        </button>
-      </div>
+      {/* CTA */}
+      <button
+        onClick={() => navigate(`/ai-reflection?app=${meta.app.toLowerCase()}`)}
+        className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-primary text-primary-foreground font-medium text-sm hover:brightness-110 transition-all glow-primary"
+      >
+        <Sparkles className="w-4 h-4" /> Ask AI about this session
+      </button>
     </div>
   );
 };
