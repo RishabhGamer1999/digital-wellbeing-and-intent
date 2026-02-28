@@ -13,9 +13,7 @@ const OverlayDemo = () => {
   const navigate = useNavigate();
   const [currentPhase, setCurrentPhase] = useState<string>("phase_normal");
   const [showToast, setShowToast] = useState(false);
-  const [showWalkingToast, setShowWalkingToast] = useState(false);
   const [scrollSpeed, setScrollSpeed] = useState(0);
-  const simulatedWalking = true; // simulate walking state
   const scrollRef = useRef<HTMLDivElement>(null);
   const lastScrollTop = useRef(0);
   const lastTime = useRef(Date.now());
@@ -35,9 +33,6 @@ const OverlayDemo = () => {
       setTimeout(() => {
         setCurrentPhase("phase_viscous");
         setShowToast(true);
-        if (simulatedWalking) {
-          setTimeout(() => setShowWalkingToast(true), 800);
-        }
       }, 500);
     }
   }, [currentPhase]);
@@ -135,26 +130,6 @@ const OverlayDemo = () => {
               Settings
             </button>
             <button onClick={() => { setShowToast(false); setCurrentPhase("phase_normal"); }} className="text-muted-foreground hover:text-foreground">
-              <X className="w-3.5 h-3.5" />
-            </button>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Walking detection toast */}
-      <AnimatePresence>
-        {showWalkingToast && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="fixed top-32 left-1/2 -translate-x-1/2 z-50 bg-card border border-elevated/40 rounded-full px-4 py-2.5 flex items-center gap-3 shadow-lg"
-          >
-            <span className="text-xs text-foreground">🚶 Distracted walking detected. Tap to review.</span>
-            <button onClick={() => navigate("/movement-activity")} className="text-[10px] text-elevated font-semibold hover:underline whitespace-nowrap">
-              Review
-            </button>
-            <button onClick={() => setShowWalkingToast(false)} className="text-muted-foreground hover:text-foreground">
               <X className="w-3.5 h-3.5" />
             </button>
           </motion.div>

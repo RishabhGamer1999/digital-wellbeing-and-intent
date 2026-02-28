@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowLeft, Clock, Shield } from "lucide-react";
+import { ArrowLeft, Clock } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Switch } from "@/components/ui/switch";
@@ -19,7 +19,6 @@ const HabitSettings = () => {
   );
   const [friction, setFriction] = useState([frictionSlider.current_value]);
   const [haptic, setHaptic] = useState(hapticToggle.enabled);
-  const [inTransit, setInTransit] = useState(true);
 
   const toggleApp = (id: string) => {
     setApps((prev: any[]) => prev.map((a) => a.id === id ? { ...a, enabled: !a.enabled } : a));
@@ -73,30 +72,8 @@ const HabitSettings = () => {
         </div>
       </motion.div>
 
-      {/* In-Transit Protections */}
-      <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.18 }} className="bg-card rounded-xl border border-border p-4 space-y-3">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Shield className="w-4 h-4 text-primary" />
-            <div>
-              <h3 className="text-sm font-semibold text-foreground">In-Transit Protections</h3>
-              <p className="text-xs text-muted-foreground mt-0.5">Detect and limit usage while moving</p>
-            </div>
-          </div>
-          <Switch checked={inTransit} onCheckedChange={setInTransit} />
-        </div>
-        {inTransit && (
-          <button
-            onClick={() => navigate("/movement-activity")}
-            className="text-xs text-primary font-medium hover:underline ml-6"
-          >
-            View Movement History →
-          </button>
-        )}
-      </motion.div>
-
       {/* Time-Bound Triggers */}
-      <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25 }} className="bg-card rounded-xl border border-border p-4 space-y-3">
+      <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="bg-card rounded-xl border border-border p-4 space-y-3">
         <h3 className="text-sm font-semibold text-foreground">{timeBound.label}</h3>
         {timeBound.rules.map((rule: any) => (
           <div key={rule.id} className="flex items-center gap-3 py-2 px-1">

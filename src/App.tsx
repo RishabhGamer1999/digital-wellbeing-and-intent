@@ -11,7 +11,6 @@ import SessionDetail from "./pages/SessionDetail";
 import AIReflection from "./pages/AIReflection";
 import HabitSettings from "./pages/HabitSettings";
 import OverlayDemo from "./pages/OverlayDemo";
-import MovementActivity from "./pages/MovementActivity";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -31,7 +30,6 @@ const App = () => (
             <Route path="/ai-reflection" element={<AIReflection />} />
             <Route path="/settings/habits" element={<HabitSettings />} />
             <Route path="/overlay/demo" element={<OverlayDemo />} />
-            <Route path="/movement-activity" element={<MovementActivity />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
