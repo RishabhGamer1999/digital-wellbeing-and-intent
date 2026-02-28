@@ -122,21 +122,13 @@ const SessionDetail = () => {
         </p>
       </motion.div>
 
-      {/* CTAs */}
-      <div className="space-y-2">
-        <button
-          onClick={() => navigate(`/ai-reflection?mode=session_reflect&app=${meta.app.toLowerCase()}&session_id=${meta.session_id}&auto_send=trigger`)}
-          className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-primary text-primary-foreground font-medium text-sm hover:brightness-110 transition-all glow-primary"
-        >
-          <Sparkles className="w-4 h-4" /> Ask AI why this happened
-        </button>
-        <button
-          onClick={() => navigate(`/ai-reflection?mode=session_reflect&app=${meta.app.toLowerCase()}&session_id=${meta.session_id}`)}
-          className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-card border border-border text-foreground font-medium text-sm hover:bg-accent transition-all"
-        >
-          <Sparkles className="w-4 h-4" /> Reflect on this session
-        </button>
-      </div>
+      {/* CTA */}
+      <button
+        onClick={() => navigate(`/ai-reflection?mode=session_reflect&app=${meta.app.toLowerCase()}&session_id=${meta.session_id}`)}
+        className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-primary text-primary-foreground font-medium text-sm hover:brightness-110 transition-all glow-primary"
+      >
+        <Sparkles className="w-4 h-4" /> Ask AI about this session
+      </button>
     </div>
   );
 };
