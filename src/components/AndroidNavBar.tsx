@@ -16,7 +16,7 @@ const AndroidNavBar = () => {
       {/* Home - horizontal pill/line */}
       <button
         onClick={() => navigate("/")}
-        className="w-16 h-1 rounded-full bg-[#666] hover:bg-[#888] transition-colors"
+        className="w-8 h-8 rounded-full border-2 border-[#666] hover:border-[#888] transition-colors"
       />
       {/* Back - triangle pointing left */}
       <button
