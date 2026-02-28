@@ -33,10 +33,15 @@ const dataByRange = {
     label: "Last 7 Days — Intent Spectrum",
     subtitle: "Weekly patterns across your digital habits",
     stats: { totalScreenTime: "38h 12m", highTensionPercentage: 31, focusedPercentage: 28 },
-    slots: timeline.slots.map((s: any, i: number) => ({
-      ...s,
-      state: i % 5 === 0 ? "high_tension" : i % 3 === 0 ? "elevated" : i % 2 === 0 ? "focused" : s.state,
-    })),
+    slots: [
+      { hour: 0, state: "elevated", color: "#FF9800", dominant_app: "Instagram", session_ids: ["sess_2200_instagram"], label: "Mon" },
+      { hour: 1, state: "high_tension", color: "#F44336", dominant_app: "Twitter", session_ids: ["sess_2200_instagram"], label: "Tue" },
+      { hour: 2, state: "focused", color: "#8BC34A", dominant_app: "Notion", session_ids: ["sess_070"], label: "Wed" },
+      { hour: 3, state: "relaxed", color: "#4CAF50", dominant_app: "Spotify", session_ids: [], label: "Thu" },
+      { hour: 4, state: "high_tension", color: "#F44336", dominant_app: "Reddit", session_ids: ["sess_2200_instagram"], label: "Fri" },
+      { hour: 5, state: "elevated", color: "#FF9800", dominant_app: "YouTube", session_ids: ["sess_2200_instagram"], label: "Sat" },
+      { hour: 6, state: "focused", color: "#8BC34A", dominant_app: "Chrome", session_ids: ["sess_060"], label: "Sun" },
+    ],
     alert: { appName: "Instagram", duration: 145, trigger: "Repeated late-night doom scrolling detected", scroll: 820, session: "sess_2200_instagram" },
     highTension: [
       { app: "Instagram", tag: "Doom scrolling", duration: 145, session: "sess_2200_instagram", color: "#E040FB" },
@@ -52,10 +57,20 @@ const dataByRange = {
     label: "Last 30 Days — Intent Spectrum",
     subtitle: "Monthly overview of your digital wellbeing",
     stats: { totalScreenTime: "156h 40m", highTensionPercentage: 28, focusedPercentage: 32 },
-    slots: timeline.slots.map((s: any, i: number) => ({
-      ...s,
-      state: i % 4 === 0 ? "focused" : i % 6 === 0 ? "high_tension" : i % 3 === 0 ? "neutral" : s.state,
-    })),
+    slots: Array.from({ length: 30 }, (_, i) => {
+      const day = i + 1;
+      const states = ["relaxed", "focused", "neutral", "elevated", "high_tension"];
+      const apps = ["Instagram", "Reddit", "Twitter", "YouTube", "Notion", "Chrome", "Spotify"];
+      const state = states[(day * 7 + day) % 5];
+      return {
+        hour: i,
+        state,
+        color: state === "high_tension" ? "#F44336" : state === "elevated" ? "#FF9800" : state === "focused" ? "#8BC34A" : state === "neutral" ? "#9E9E9E" : "#4CAF50",
+        dominant_app: apps[day % 7],
+        session_ids: state === "relaxed" ? [] : ["sess_2200_instagram"],
+        label: `${day}`,
+      };
+    }),
     alert: { appName: "Instagram", duration: 580, trigger: "Consistent high-tension pattern detected monthly", scroll: 790, session: "sess_2200_instagram" },
     highTension: [
       { app: "Instagram", tag: "Late-night spiral", duration: 580, session: "sess_2200_instagram", color: "#E040FB" },
@@ -113,7 +128,7 @@ const Dashboard = () => {
         </div>
       </div>
 
-      <IntentTimeline slots={d.slots} />
+      <IntentTimeline slots={d.slots} range={range} />
 
       {/* High-Tension Sessions */}
       <div className="space-y-2">
