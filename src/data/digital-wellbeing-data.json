@@ -1,6 +1,9 @@
 {
-  "prototype_id": "mindmotion_mvp_v1",
-  "app_name": "MindMotion",
+  "prototype_id": "digital_wellbeing_mvp_v1",
+  "app_name": "Digital Wellbeing",
+  "entry_point": "samsung_settings",
+  "device_simulation": "samsung_galaxy_s24_ultra",
+  "os": "android_14_one_ui_6_1",
   "theme": {
     "primary": "#4CAF50",
     "danger": "#F44336",
@@ -9,6 +12,25 @@
     "on_surface": "#FFFFFF"
   },
   "screens": [
+    {
+      "id": "screen_0",
+      "title": "Samsung Settings",
+      "route": "/settings",
+      "components": [
+        {
+          "id": "settings_list",
+          "type": "settings_list",
+          "sections": [
+            { "id": "connections", "label": "Connections", "icon": "wifi", "subtitle": "Wi-Fi, Bluetooth, NFC" },
+            { "id": "sounds", "label": "Sounds and vibration", "icon": "volume", "subtitle": "Sound mode, Ringtone" },
+            { "id": "notifications", "label": "Notifications", "icon": "bell", "subtitle": "Status bar, Do not disturb" },
+            { "id": "display", "label": "Display", "icon": "sun", "subtitle": "Brightness, Eye comfort shield" },
+            { "id": "battery", "label": "Battery", "icon": "battery", "subtitle": "81%" },
+            { "id": "digital_wellbeing", "label": "Digital Wellbeing & Parental Controls", "icon": "sprout", "subtitle": "Screen time, App timers", "highlighted": true }
+          ]
+        }
+      ]
+    },
     {
       "id": "screen_1",
       "title": "Intent Spectrum Dashboard",
@@ -46,29 +68,8 @@
           ],
           "tap_targets": [
             { "id": "tap_hour_0", "type": "tap_target", "target_hour": 0, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": null } },
-            { "id": "tap_hour_1", "type": "tap_target", "target_hour": 1, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": null } },
-            { "id": "tap_hour_2", "type": "tap_target", "target_hour": 2, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": null } },
-            { "id": "tap_hour_3", "type": "tap_target", "target_hour": 3, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": null } },
-            { "id": "tap_hour_4", "type": "tap_target", "target_hour": 4, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": null } },
-            { "id": "tap_hour_5", "type": "tap_target", "target_hour": 5, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": null } },
             { "id": "tap_hour_6", "type": "tap_target", "target_hour": 6, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": "sess_060" } },
-            { "id": "tap_hour_7", "type": "tap_target", "target_hour": 7, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": "sess_070" } },
-            { "id": "tap_hour_8", "type": "tap_target", "target_hour": 8, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": "sess_080" } },
-            { "id": "tap_hour_9", "type": "tap_target", "target_hour": 9, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": "sess_090" } },
-            { "id": "tap_hour_10", "type": "tap_target", "target_hour": 10, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": "sess_100" } },
-            { "id": "tap_hour_11", "type": "tap_target", "target_hour": 11, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": "sess_110" } },
-            { "id": "tap_hour_12", "type": "tap_target", "target_hour": 12, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": "sess_120" } },
-            { "id": "tap_hour_13", "type": "tap_target", "target_hour": 13, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": "sess_130" } },
-            { "id": "tap_hour_14", "type": "tap_target", "target_hour": 14, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": "sess_140" } },
-            { "id": "tap_hour_15", "type": "tap_target", "target_hour": 15, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": "sess_150" } },
-            { "id": "tap_hour_16", "type": "tap_target", "target_hour": 16, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": "sess_160" } },
-            { "id": "tap_hour_17", "type": "tap_target", "target_hour": 17, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": "sess_170" } },
-            { "id": "tap_hour_18", "type": "tap_target", "target_hour": 18, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": "sess_180" } },
-            { "id": "tap_hour_19", "type": "tap_target", "target_hour": 19, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": "sess_190" } },
-            { "id": "tap_hour_20", "type": "tap_target", "target_hour": 20, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": "sess_200" } },
-            { "id": "tap_hour_21", "type": "tap_target", "target_hour": 21, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": "sess_210" } },
-            { "id": "tap_hour_22", "type": "tap_target", "target_hour": 22, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": "sess_2200_instagram" } },
-            { "id": "tap_hour_23", "type": "tap_target", "target_hour": 23, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": "sess_2200_instagram" } }
+            { "id": "tap_hour_22", "type": "tap_target", "target_hour": 22, "on_interaction": { "action": "navigate", "target": "session_detail", "session_id": "sess_2200_instagram" } }
           ]
         },
         {
@@ -230,7 +231,7 @@
           "on_interaction": {
             "action": "navigate",
             "target": "habit_settings",
-            "screen": "screen_4"
+            "screen": "screen_5"
           }
         }
       ]
@@ -249,40 +250,28 @@
               "type": "chip",
               "label": "Why do I feel drained?",
               "prefill_message": "Why do I feel so drained after that Instagram session?",
-              "on_interaction": {
-                "action": "prefill_input",
-                "value": "Why do I feel so drained after that Instagram session?"
-              }
+              "on_interaction": { "action": "prefill_input", "value": "Why do I feel so drained after that Instagram session?" }
             },
             {
               "id": "chip_trigger",
               "type": "chip",
               "label": "What triggered this?",
               "prefill_message": "What triggered my doomscrolling behaviour at 10pm?",
-              "on_interaction": {
-                "action": "prefill_input",
-                "value": "What triggered my doomscrolling behaviour at 10pm?"
-              }
+              "on_interaction": { "action": "prefill_input", "value": "What triggered my doomscrolling behaviour at 10pm?" }
             },
             {
               "id": "chip_stressed",
               "type": "chip",
               "label": "Was I stressed?",
               "prefill_message": "Was I stressed during this session based on my sensor data?",
-              "on_interaction": {
-                "action": "prefill_input",
-                "value": "Was I stressed during this session based on my sensor data?"
-              }
+              "on_interaction": { "action": "prefill_input", "value": "Was I stressed during this session based on my sensor data?" }
             },
             {
               "id": "chip_set_limit",
               "type": "chip",
               "label": "Help me set a limit",
               "prefill_message": "Help me set a screen time limit to prevent this from happening again.",
-              "on_interaction": {
-                "action": "prefill_input",
-                "value": "Help me set a screen time limit to prevent this from happening again."
-              }
+              "on_interaction": { "action": "prefill_input", "value": "Help me set a screen time limit to prevent this from happening again." }
             }
           ]
         },
@@ -305,11 +294,7 @@
               "message_type": "text",
               "insight": {
                 "mechanism": "slot_machine_effect",
-                "cited_data": {
-                  "swipe_velocity_start": 210,
-                  "swipe_velocity_peak": 950,
-                  "session_id": "sess_2200_instagram"
-                }
+                "cited_data": { "swipe_velocity_start": 210, "swipe_velocity_peak": 950, "session_id": "sess_2200_instagram" }
               }
             },
             {
@@ -327,11 +312,7 @@
               "message_type": "insight_card",
               "insight": {
                 "mechanism": "slot_machine_effect",
-                "cited_data": {
-                  "pre_session_tension_app": "Reddit",
-                  "gap_before_session_minutes": 8,
-                  "session_id": "sess_2200_instagram"
-                }
+                "cited_data": { "pre_session_tension_app": "Reddit", "gap_before_session_minutes": 8, "session_id": "sess_2200_instagram" }
               },
               "insight_card": {
                 "title": "The Slot Machine Effect",
@@ -354,11 +335,7 @@
               "message_type": "text",
               "insight": {
                 "mechanism": "friction_intervention",
-                "cited_data": {
-                  "tension_onset_minute": 22,
-                  "recommended_cap_minutes": 30,
-                  "session_id": "sess_2200_instagram"
-                }
+                "cited_data": { "tension_onset_minute": 22, "recommended_cap_minutes": 30, "session_id": "sess_2200_instagram" }
               }
             }
           ]
@@ -368,43 +345,54 @@
           "type": "message_feedback",
           "target_message_id": "msg_006",
           "controls": {
-            "thumbs_up": {
-              "id": "feedback_thumbs_up",
-              "type": "icon_button",
-              "icon": "thumb_up",
-              "on_interaction": {
-                "action": "feedback",
-                "value": "helpful",
-                "message_id": "msg_006"
-              }
-            },
-            "thumbs_down": {
-              "id": "feedback_thumbs_down",
-              "type": "icon_button",
-              "icon": "thumb_down",
-              "on_interaction": {
-                "action": "feedback",
-                "value": "not_helpful",
-                "message_id": "msg_006"
-              }
-            },
-            "correction_chip": {
-              "id": "correction_chip_gaming",
-              "type": "chip",
-              "label": "Actually, I was playing a fast-paced game",
-              "on_interaction": {
-                "action": "retrain_baseline",
-                "correction_context": "gaming_session",
-                "message_id": "msg_006",
-                "session_id": "sess_2200_instagram"
-              }
-            }
+            "thumbs_up": { "id": "feedback_thumbs_up", "type": "icon_button", "icon": "thumb_up", "on_interaction": { "action": "feedback", "value": "helpful", "message_id": "msg_006" } },
+            "thumbs_down": { "id": "feedback_thumbs_down", "type": "icon_button", "icon": "thumb_down", "on_interaction": { "action": "feedback", "value": "not_helpful", "message_id": "msg_006" } },
+            "correction_chip": { "id": "correction_chip_gaming", "type": "chip", "label": "Actually, I was playing a fast-paced game", "on_interaction": { "action": "retrain_baseline", "correction_context": "gaming_session", "message_id": "msg_006", "session_id": "sess_2200_instagram" } }
           }
         }
       ]
     },
     {
       "id": "screen_4",
+      "title": "Digital Wellbeing Landing",
+      "route": "/digital-wellbeing",
+      "components": [
+        {
+          "id": "screen_time_donut",
+          "type": "donut_chart",
+          "total": "6h 23m",
+          "segments": [
+            { "app": "Instagram", "minutes": 87, "color": "#E1306C" },
+            { "app": "Chrome", "minutes": 68, "color": "#4285F4" },
+            { "app": "YouTube", "minutes": 54, "color": "#FF0000" },
+            { "app": "Slack", "minutes": 45, "color": "#4A154B" },
+            { "app": "Notion", "minutes": 62, "color": "#000000" },
+            { "app": "Other", "minutes": 67, "color": "#9E9E9E" }
+          ]
+        },
+        {
+          "id": "intent_spectrum_card",
+          "type": "feature_card",
+          "label": "Intent Spectrum",
+          "badge": "Beta",
+          "description": "Understand your digital habits through motion-based tension analysis",
+          "on_interaction": { "action": "navigate", "target": "intent_spectrum_dashboard" }
+        },
+        {
+          "id": "app_usage_list",
+          "type": "app_list",
+          "apps": [
+            { "name": "Instagram", "time": "1h 27m", "icon_color": "#E1306C" },
+            { "name": "Chrome", "time": "1h 8m", "icon_color": "#4285F4" },
+            { "name": "Notion", "time": "1h 2m", "icon_color": "#000000" },
+            { "name": "YouTube", "time": "54m", "icon_color": "#FF0000" },
+            { "name": "Slack", "time": "45m", "icon_color": "#4A154B" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "screen_5",
       "title": "Habit Resolution Settings",
       "route": "/settings/habits",
       "components": [
@@ -414,58 +402,10 @@
           "label": "Viscous Scrolling",
           "description": "Applies resistance to scrolling gestures when tension is detected",
           "app_entries": [
-            {
-              "id": "app_entry_instagram",
-              "type": "toggle_row",
-              "app_id": "com.instagram.android",
-              "app_name": "Instagram",
-              "icon_url": "https://placeholder.mindmotion.app/icons/instagram.png",
-              "viscous_enabled": true,
-              "on_interaction": {
-                "action": "toggle_setting",
-                "key": "viscous_scrolling",
-                "app_id": "com.instagram.android"
-              }
-            },
-            {
-              "id": "app_entry_tiktok",
-              "type": "toggle_row",
-              "app_id": "com.zhiliaoapp.musically",
-              "app_name": "TikTok",
-              "icon_url": "https://placeholder.mindmotion.app/icons/tiktok.png",
-              "viscous_enabled": true,
-              "on_interaction": {
-                "action": "toggle_setting",
-                "key": "viscous_scrolling",
-                "app_id": "com.zhiliaoapp.musically"
-              }
-            },
-            {
-              "id": "app_entry_twitter",
-              "type": "toggle_row",
-              "app_id": "com.twitter.android",
-              "app_name": "Twitter",
-              "icon_url": "https://placeholder.mindmotion.app/icons/twitter.png",
-              "viscous_enabled": false,
-              "on_interaction": {
-                "action": "toggle_setting",
-                "key": "viscous_scrolling",
-                "app_id": "com.twitter.android"
-              }
-            },
-            {
-              "id": "app_entry_reddit",
-              "type": "toggle_row",
-              "app_id": "com.reddit.frontpage",
-              "app_name": "Reddit",
-              "icon_url": "https://placeholder.mindmotion.app/icons/reddit.png",
-              "viscous_enabled": false,
-              "on_interaction": {
-                "action": "toggle_setting",
-                "key": "viscous_scrolling",
-                "app_id": "com.reddit.frontpage"
-              }
-            }
+            { "id": "app_entry_instagram", "type": "toggle_row", "app_id": "com.instagram.android", "app_name": "Instagram", "icon_url": "https://placeholder.digitalwellbeing.app/icons/instagram.png", "viscous_enabled": true, "on_interaction": { "action": "toggle_setting", "key": "viscous_scrolling", "app_id": "com.instagram.android" } },
+            { "id": "app_entry_tiktok", "type": "toggle_row", "app_id": "com.zhiliaoapp.musically", "app_name": "TikTok", "icon_url": "https://placeholder.digitalwellbeing.app/icons/tiktok.png", "viscous_enabled": true, "on_interaction": { "action": "toggle_setting", "key": "viscous_scrolling", "app_id": "com.zhiliaoapp.musically" } },
+            { "id": "app_entry_twitter", "type": "toggle_row", "app_id": "com.twitter.android", "app_name": "Twitter", "icon_url": "https://placeholder.digitalwellbeing.app/icons/twitter.png", "viscous_enabled": false, "on_interaction": { "action": "toggle_setting", "key": "viscous_scrolling", "app_id": "com.twitter.android" } },
+            { "id": "app_entry_reddit", "type": "toggle_row", "app_id": "com.reddit.frontpage", "app_name": "Reddit", "icon_url": "https://placeholder.digitalwellbeing.app/icons/reddit.png", "viscous_enabled": false, "on_interaction": { "action": "toggle_setting", "key": "viscous_scrolling", "app_id": "com.reddit.frontpage" } }
           ]
         },
         {
@@ -477,11 +417,7 @@
           "current_value": 7,
           "labels": ["Gentle", "Firm", "Heavy"],
           "label_positions": [1, 5, 10],
-          "on_interaction": {
-            "id": "friction_slider_change",
-            "action": "update_setting",
-            "key": "friction_level"
-          }
+          "on_interaction": { "id": "friction_slider_change", "action": "update_setting", "key": "friction_level" }
         },
         {
           "id": "haptic_cushioning_toggle",
@@ -489,11 +425,7 @@
           "label": "Haptic Cushioning",
           "description": "Softens system vibrations during detected high-stress periods",
           "enabled": true,
-          "on_interaction": {
-            "id": "haptic_toggle_change",
-            "action": "toggle_setting",
-            "key": "haptic_cushioning"
-          }
+          "on_interaction": { "id": "haptic_toggle_change", "action": "toggle_setting", "key": "haptic_cushioning" }
         },
         {
           "id": "time_bound_triggers_section",
@@ -501,33 +433,14 @@
           "label": "Time-Bound Triggers",
           "enabled": true,
           "rules": [
-            {
-              "id": "rule_late_night",
-              "type": "trigger_rule",
-              "trigger": "time_of_day",
-              "after": "22:00",
-              "applies_to": ["viscous_scrolling"],
-              "label": "Enable after 10:00 PM",
-              "on_interaction": {
-                "action": "edit_rule",
-                "rule_id": "rule_late_night"
-              }
-            }
+            { "id": "rule_late_night", "type": "trigger_rule", "trigger": "time_of_day", "after": "22:00", "applies_to": ["viscous_scrolling"], "label": "Enable after 10:00 PM", "on_interaction": { "action": "edit_rule", "rule_id": "rule_late_night" } }
           ],
-          "add_rule_cta": {
-            "id": "add_rule_btn",
-            "type": "button",
-            "label": "+ Add Rule",
-            "style_hint": "text_button_primary",
-            "on_interaction": {
-              "action": "open_add_rule_dialog"
-            }
-          }
+          "add_rule_cta": { "id": "add_rule_btn", "type": "button", "label": "+ Add Rule", "style_hint": "text_button_primary", "on_interaction": { "action": "open_add_rule_dialog" } }
         }
       ]
     },
     {
-      "id": "screen_5",
+      "id": "screen_6",
       "title": "In-App Overlay — Viscous Scroll Simulation",
       "route": "/overlay/instagram-feed",
       "trigger": "contextual",
@@ -537,73 +450,20 @@
           "id": "simulated_feed",
           "type": "social_feed",
           "feed_items": [
-            {
-              "id": "post_001",
-              "user_handle": "@aurora.vibes",
-              "content_type": "image",
-              "placeholder_color": "#B39DDB",
-              "like_count": 2841,
-              "comment_count": 134
-            },
-            {
-              "id": "post_002",
-              "user_handle": "@daily.dose.fitness",
-              "content_type": "video",
-              "placeholder_color": "#80CBC4",
-              "like_count": 11203,
-              "comment_count": 478
-            },
-            {
-              "id": "post_003",
-              "user_handle": "@nightowl.art",
-              "content_type": "image",
-              "placeholder_color": "#FFCC80",
-              "like_count": 892,
-              "comment_count": 61
-            },
-            {
-              "id": "post_004",
-              "user_handle": "@travel.junkie.mk",
-              "content_type": "image",
-              "placeholder_color": "#A5D6A7",
-              "like_count": 5510,
-              "comment_count": 203
-            },
-            {
-              "id": "post_005",
-              "user_handle": "@mindset.unlocked",
-              "content_type": "text",
-              "placeholder_color": "#EF9A9A",
-              "like_count": 3307,
-              "comment_count": 289
-            }
+            { "id": "post_001", "user_handle": "@aurora.vibes", "content_type": "image", "placeholder_color": "#B39DDB", "like_count": 2841, "comment_count": 134 },
+            { "id": "post_002", "user_handle": "@daily.dose.fitness", "content_type": "video", "placeholder_color": "#80CBC4", "like_count": 11203, "comment_count": 478 },
+            { "id": "post_003", "user_handle": "@nightowl.art", "content_type": "image", "placeholder_color": "#FFCC80", "like_count": 892, "comment_count": 61 },
+            { "id": "post_004", "user_handle": "@travel.junkie.mk", "content_type": "image", "placeholder_color": "#A5D6A7", "like_count": 5510, "comment_count": 203 },
+            { "id": "post_005", "user_handle": "@mindset.unlocked", "content_type": "text", "placeholder_color": "#EF9A9A", "like_count": 3307, "comment_count": 289 }
           ]
         },
         {
           "id": "scroll_simulation",
           "type": "scroll_simulation",
           "phases": {
-            "phase_1": {
-              "id": "phase_normal",
-              "label": "Normal scrolling",
-              "duration_ms": 2000,
-              "scroll_resistance": 1.0
-            },
-            "phase_2": {
-              "id": "phase_spike",
-              "label": "Tension spike detected",
-              "duration_ms": 500,
-              "scroll_resistance": 1.0,
-              "trigger_event": "velocity_threshold_exceeded",
-              "velocity_threshold_px_s": 600
-            },
-            "phase_3": {
-              "id": "phase_viscous",
-              "label": "Viscous scrolling engaged",
-              "duration_ms": 5000,
-              "scroll_resistance": 4.5,
-              "drag_multiplier": 3.2
-            }
+            "phase_1": { "id": "phase_normal", "label": "Normal scrolling", "duration_ms": 2000, "scroll_resistance": 1.0 },
+            "phase_2": { "id": "phase_spike", "label": "Tension spike detected", "duration_ms": 500, "scroll_resistance": 1.0, "trigger_event": "velocity_threshold_exceeded", "velocity_threshold_px_s": 600 },
+            "phase_3": { "id": "phase_viscous", "label": "Viscous scrolling engaged", "duration_ms": 5000, "scroll_resistance": 4.5, "drag_multiplier": 3.2 }
           }
         },
         {
@@ -613,26 +473,8 @@
           "message": "Tension spike detected. Viscous scrolling engaged to help you ground.",
           "style": "pill",
           "position": "top_center",
-          "dismiss_action": {
-            "id": "toast_dismiss_btn",
-            "type": "icon_button",
-            "icon": "close",
-            "on_interaction": {
-              "action": "dismiss_toast",
-              "toast_id": "intervention_toast"
-            }
-          },
-          "secondary_action": {
-            "id": "toast_settings_btn",
-            "type": "button",
-            "label": "Settings",
-            "style_hint": "text_button_on_pill",
-            "on_interaction": {
-              "action": "navigate",
-              "target": "habit_settings",
-              "screen": "screen_4"
-            }
-          }
+          "dismiss_action": { "id": "toast_dismiss_btn", "type": "icon_button", "icon": "close", "on_interaction": { "action": "dismiss_toast", "toast_id": "intervention_toast" } },
+          "secondary_action": { "id": "toast_settings_btn", "type": "button", "label": "Settings", "style_hint": "text_button_on_pill", "on_interaction": { "action": "navigate", "target": "habit_settings", "screen": "screen_5" } }
         }
       ]
     }

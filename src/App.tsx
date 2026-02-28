@@ -4,6 +4,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AppLayout from "./components/AppLayout";
+import SamsungSettings from "./pages/SamsungSettings";
+import DigitalWellbeingLanding from "./pages/DigitalWellbeingLanding";
 import Dashboard from "./pages/Dashboard";
 import SessionDetail from "./pages/SessionDetail";
 import AIReflection from "./pages/AIReflection";
@@ -21,7 +23,9 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route element={<AppLayout />}>
-            <Route path="/" element={<Dashboard />} />
+            <Route path="/" element={<SamsungSettings />} />
+            <Route path="/digital-wellbeing" element={<DigitalWellbeingLanding />} />
+            <Route path="/intent-spectrum" element={<Dashboard />} />
             <Route path="/session/:sessionId" element={<SessionDetail />} />
             <Route path="/ai-reflection" element={<AIReflection />} />
             <Route path="/settings/habits" element={<HabitSettings />} />
