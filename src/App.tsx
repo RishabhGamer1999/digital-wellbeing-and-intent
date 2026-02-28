@@ -26,8 +26,8 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<SamsungHomeScreen />} />
           <Route element={<AppLayout />}>
+            <Route path="/" element={<SamsungHomeScreen />} />
             <Route path="/settings" element={<SamsungSettings />} />
             <Route path="/digital-wellbeing" element={<DigitalWellbeingLanding />} />
             <Route path="/intent-spectrum" element={<Dashboard />} />
