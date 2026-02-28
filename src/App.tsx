@@ -11,6 +11,9 @@ import SessionDetail from "./pages/SessionDetail";
 import AIReflection from "./pages/AIReflection";
 import HabitSettings from "./pages/HabitSettings";
 import OverlayDemo from "./pages/OverlayDemo";
+import WalkingMonitor from "./pages/WalkingMonitor";
+import DrivingMonitor from "./pages/DrivingMonitor";
+import VolumeMonitor from "./pages/VolumeMonitor";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,6 +33,9 @@ const App = () => (
             <Route path="/ai-reflection" element={<AIReflection />} />
             <Route path="/settings/habits" element={<HabitSettings />} />
             <Route path="/overlay/demo" element={<OverlayDemo />} />
+            <Route path="/digital-wellbeing/monitors/walking" element={<WalkingMonitor />} />
+            <Route path="/digital-wellbeing/monitors/driving" element={<DrivingMonitor />} />
+            <Route path="/digital-wellbeing/monitors/volume" element={<VolumeMonitor />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
