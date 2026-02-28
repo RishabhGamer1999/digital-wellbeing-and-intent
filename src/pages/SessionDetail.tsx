@@ -29,6 +29,15 @@ const stateStyles: Record<string, string> = {
   neutral: "bg-neutral-state/15 text-neutral-state border-neutral-state/30",
 };
 
+const appInsights: Record<string, string> = {
+  Instagram: "Your swipe velocity spiked during Reels browsing, suggesting compulsive scroll patterns. Screen pressure remained elevated throughout, indicating heightened emotional engagement with visual content. Consider setting a Reels timer to break the loop.",
+  Reddit: "Deep thread-diving behavior detected with rapid scrolling through comment chains. Pressure spikes correlate with controversial topics, suggesting rage-browsing tendencies. A thread-depth nudge could help you disengage earlier.",
+  Twitter: "Rapid timeline refreshing and quote-tweet engagement drove tension levels up. Your interaction pattern shows outrage-driven scrolling with minimal pause between posts. A reply cooldown buffer may reduce reactive engagement.",
+  YouTube: "Autoplay kept you watching 3× longer than intended. Swipe velocity dropped as passive consumption increased, indicating a trance-like viewing state. Enabling autoplay friction could restore intentional watching.",
+  TikTok: "Extremely high swipe velocity with near-zero pause time between videos. Your session shows classic dopamine-loop behavior with no content retention. A micro-break every 15 videos could help reset attention.",
+  Facebook: "Extended feed scrolling with periodic pressure spikes around shared news articles. Engagement was reactive rather than intentional, driven by algorithm-served content. Consider using the bookmark feature instead of doom-scrolling.",
+};
+
 const SessionDetail = () => {
   const navigate = useNavigate();
 
@@ -96,6 +105,21 @@ const SessionDetail = () => {
             </div>
           ))}
         </div>
+      </motion.div>
+
+      {/* Insights */}
+      <motion.div
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.25 }}
+        className="bg-card rounded-xl border border-border p-4 space-y-2"
+      >
+        <h3 className="text-sm font-medium text-foreground flex items-center gap-2">
+          <BookOpen className="w-4 h-4 text-primary" /> Insights
+        </h3>
+        <p className="text-xs text-muted-foreground leading-relaxed">
+          {appInsights[meta.app] ?? "This session showed notable behavioral patterns. Review the kinetic data above for detailed interaction trends."}
+        </p>
       </motion.div>
 
       {/* CTA */}
