@@ -15,23 +15,23 @@ const SamsungSettings = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-full bg-[#1C1C1E]">
+    <div className="min-h-full bg-background">
       {/* One UI large header */}
       <div className="px-5 pt-8 pb-4">
-        <h1 className="text-[28px] font-bold text-[#E0E0E0] leading-tight">Settings</h1>
+        <h1 className="text-[28px] font-bold text-foreground leading-tight">Settings</h1>
       </div>
 
       {/* Search bar */}
       <div className="px-5 pb-4">
-        <div className="flex items-center gap-3 bg-[#2C2C2E] rounded-xl px-4 py-2.5">
-          <Search className="w-4 h-4 text-[#888]" />
-          <span className="text-sm text-[#666]">Search settings</span>
+        <div className="flex items-center gap-3 bg-secondary rounded-xl px-4 py-2.5">
+          <Search className="w-4 h-4 text-muted-foreground" />
+          <span className="text-sm text-muted-foreground">Search settings</span>
         </div>
       </div>
 
       {/* Settings list */}
       <div className="px-3">
-        <div className="bg-[#2C2C2E] rounded-xl overflow-hidden">
+        <div className="bg-card rounded-xl overflow-hidden border border-border">
           {settingsItems.map((item, i) => (
             <motion.button
               key={item.id}
@@ -45,24 +45,24 @@ const SamsungSettings = () => {
               }}
               className={`w-full flex items-center gap-4 px-4 py-3.5 text-left transition-colors ${
                 item.highlighted
-                  ? "bg-[#4CAF50]/8 hover:bg-[#4CAF50]/12"
-                  : "hover:bg-[#3C3C3E]"
-              } ${i < settingsItems.length - 1 ? "border-b border-[#3C3C3E]" : ""}`}
+                  ? "bg-primary/5 hover:bg-primary/10"
+                  : "hover:bg-accent"
+              } ${i < settingsItems.length - 1 ? "border-b border-border" : ""}`}
             >
               <div className={`w-9 h-9 rounded-full flex items-center justify-center ${
-                item.highlighted ? "bg-[#4CAF50]/20" : "bg-[#3C3C3E]"
+                item.highlighted ? "bg-primary/15" : "bg-secondary"
               }`}>
                 <item.icon className={`w-4.5 h-4.5 ${
-                  item.highlighted ? "text-[#4CAF50]" : "text-[#aaa]"
+                  item.highlighted ? "text-primary" : "text-muted-foreground"
                 }`} />
               </div>
               <div className="flex-1 min-w-0">
                 <p className={`text-sm font-medium ${
-                  item.highlighted ? "text-[#4CAF50]" : "text-[#E0E0E0]"
+                  item.highlighted ? "text-primary" : "text-foreground"
                 }`}>{item.label}</p>
-                <p className="text-xs text-[#888] mt-0.5">{item.subtitle}</p>
+                <p className="text-xs text-muted-foreground mt-0.5">{item.subtitle}</p>
               </div>
-              <ChevronRight className="w-4 h-4 text-[#555] shrink-0" />
+              <ChevronRight className="w-4 h-4 text-muted-foreground shrink-0" />
             </motion.button>
           ))}
         </div>

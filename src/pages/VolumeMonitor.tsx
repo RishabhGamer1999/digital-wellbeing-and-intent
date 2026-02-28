@@ -116,9 +116,9 @@ const VolumeMonitor = () => {
         <div className="h-48">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={d.chartData} margin={{ top: 5, right: 10, left: -15, bottom: 0 }}>
-              <XAxis dataKey="time" tick={{ fontSize: 8, fill: "hsl(0 0% 55%)" }} tickLine={false} axisLine={false} />
-              <YAxis tick={{ fontSize: 9, fill: "hsl(0 0% 55%)" }} tickLine={false} axisLine={false} domain={[0, 100]} />
-              <Tooltip contentStyle={{ background: "#2C2C2E", border: "none", borderRadius: 8, fontSize: 11 }} labelStyle={{ color: "#999" }} />
+              <XAxis dataKey="time" tick={{ fontSize: 8, fill: "hsl(0 0% 45%)" }} tickLine={false} axisLine={false} />
+              <YAxis tick={{ fontSize: 9, fill: "hsl(0 0% 45%)" }} tickLine={false} axisLine={false} domain={[0, 100]} />
+              <Tooltip contentStyle={{ background: "#fff", border: "1px solid hsl(0 0% 88%)", borderRadius: 8, fontSize: 11 }} labelStyle={{ color: "#555" }} />
               {d.corrWindows.map((w, i) => (
                 <ReferenceArea key={i} x1={w.x1} x2={w.x2} fill="rgba(255, 235, 59, 0.2)" strokeOpacity={0} />
               ))}
