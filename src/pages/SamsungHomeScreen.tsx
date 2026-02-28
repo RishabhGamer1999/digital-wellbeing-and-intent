@@ -35,7 +35,7 @@ const SamsungHomeScreen = () => {
     <div
       className="flex flex-col relative overflow-hidden"
       style={{
-        background: "linear-gradient(180deg, #050A1A 0%, #0D1B3E 60%, #0A1428 100%)",
+        background: "linear-gradient(180deg, #E8EAF6 0%, #C5CAE9 40%, #B3C6E7 70%, #DCEEFB 100%)",
         minHeight: "calc(100vh - 80px)",
       }}
     >
@@ -43,22 +43,22 @@ const SamsungHomeScreen = () => {
       <div
         className="absolute bottom-[25%] left-1/2 -translate-x-1/2 w-[300px] h-[300px] rounded-full pointer-events-none"
         style={{
-          background: "radial-gradient(circle, rgba(29,233,182,0.15) 0%, rgba(0,188,212,0.08) 40%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(100,181,246,0.2) 0%, rgba(129,212,250,0.1) 40%, transparent 70%)",
           filter: "blur(40px)",
         }}
       />
       <div
         className="absolute bottom-[20%] left-[40%] w-[200px] h-[200px] rounded-full pointer-events-none"
         style={{
-          background: "radial-gradient(circle, rgba(0,188,212,0.12) 0%, transparent 60%)",
+          background: "radial-gradient(circle, rgba(186,147,255,0.15) 0%, transparent 60%)",
           filter: "blur(50px)",
         }}
       />
 
       {/* Clock Widget */}
       <div className="relative z-10 flex flex-col items-center mt-8 mb-6">
-        <span className="text-white text-[52px] font-light tracking-tight leading-none">9:41</span>
-        <span className="text-white/70 text-[14px] mt-1">Saturday, February 28</span>
+        <span className="text-gray-800 text-[52px] font-light tracking-tight leading-none">9:41</span>
+        <span className="text-gray-600 text-[14px] mt-1">Saturday, February 28</span>
         {/* Weather pill */}
         <div
           className="flex items-center gap-2 mt-3 px-4 py-1.5 rounded-full"
@@ -69,8 +69,8 @@ const SamsungHomeScreen = () => {
           }}
         >
           <Sun className="w-4 h-4 text-yellow-400" />
-          <span className="text-white text-[13px]">24°C</span>
-          <span className="text-white/50 text-[13px]">Delhi</span>
+          <span className="text-gray-700 text-[13px]">24°C</span>
+          <span className="text-gray-500 text-[13px]">Delhi</span>
         </div>
       </div>
 
@@ -91,8 +91,8 @@ const SamsungHomeScreen = () => {
               WebkitTextFillColor: "transparent",
             }}>G</span>
           </div>
-          <span className="text-white/40 text-[14px] flex-1">Search</span>
-          <Search className="w-4 h-4 text-white/40" />
+          <span className="text-gray-400 text-[14px] flex-1">Search</span>
+          <Search className="w-4 h-4 text-gray-400" />
         </div>
       </div>
 
@@ -113,14 +113,14 @@ const SamsungHomeScreen = () => {
               >
                 <app.icon className="w-6 h-6 text-white" strokeWidth={1.8} />
               </div>
-              <span className="text-white/90 text-[11px]">{app.name}</span>
+              <span className="text-gray-700 text-[11px]">{app.name}</span>
             </button>
           ))}
         </div>
 
         {/* Swipe hint */}
         <div className="flex justify-center mt-3">
-          <span className="text-[11px]" style={{ color: "rgba(255,255,255,0.3)" }}>
+          <span className="text-[11px]" style={{ color: "rgba(0,0,0,0.3)" }}>
             ↑ swipe up for app drawer
           </span>
         </div>
