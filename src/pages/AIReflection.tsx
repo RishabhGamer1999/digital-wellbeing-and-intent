@@ -8,50 +8,44 @@ const screen = data.screens[3] as any;
 const chips = screen.components.find((c: any) => c.type === "chips_row").chips;
 const instagramMessages = screen.components.find((c: any) => c.type === "chat_list").messages;
 
-const redditMessages = [
-  {
-    id: "r_msg_001", role: "user", timestamp: "2026-02-28T21:30:12Z",
-    content: "Why did my Reddit session feel so agitating tonight?", message_type: "text",
-  },
-  {
-    id: "r_msg_002", role: "assistant", timestamp: "2026-02-28T21:30:16Z",
-    content: "Your Reddit session from 8:02 PM lasted 23 minutes. During that time, your swipe velocity averaged 640 px/s — well above your baseline of 280 px/s. More notably, you spent 18 of those minutes in comment threads rather than browsing posts, which correlates with higher emotional arousal.",
-    message_type: "text",
-    insight: { mechanism: "rage_browsing", cited_data: { avg_swipe: 640, comment_ratio: 0.78, session_id: "sess_2002_reddit" } },
-  },
-  {
-    id: "r_msg_003", role: "user", timestamp: "2026-02-28T21:31:00Z",
-    content: "What kind of content was driving that?", message_type: "text",
-  },
-  {
-    id: "r_msg_004", role: "assistant", timestamp: "2026-02-28T21:31:04Z",
-    content: "Based on your scroll pattern, you were deep in threaded discussions — the kind where you rapidly expand replies. Reddit's nested comment structure creates a \"rabbit hole\" effect: each reply pulls you deeper, and the emotional stakes escalate as arguments get more heated.",
-    message_type: "insight_card",
-    insight: { mechanism: "rabbit_hole_threads", cited_data: { thread_depth_avg: 6.2, expand_actions: 34, session_id: "sess_2002_reddit" } },
-    insight_card: {
-      title: "The Rabbit Hole Effect",
-      body: "Reddit's nested threads create escalating emotional investment. Your data shows you expanded an average of 6.2 reply levels deep, with 34 expand actions in 23 minutes. Each level deeper increases cognitive load and emotional arousal — that's why you felt drained.",
-      cited_stat: "34 thread expansions in 23 min — 1.5 per minute, 2.4× your usual Reddit pace",
-    },
-  },
-  {
-    id: "r_msg_005", role: "user", timestamp: "2026-02-28T21:31:45Z",
-    content: "How can I stop falling into that pattern?", message_type: "text",
-  },
-  {
-    id: "r_msg_006", role: "assistant", timestamp: "2026-02-28T21:31:48Z",
-    content: "Two approaches: (1) Enable **Thread Depth Nudge** — after expanding 4 levels deep, you'll see a gentle prompt asking \"Still worth reading?\". (2) Set a **comment-thread time cap** of 10 minutes. Your tension typically spikes around minute 12 in comment threads, so catching it earlier preserves your calm. Want me to set these up?",
-    message_type: "text",
-    insight: { mechanism: "depth_friction", cited_data: { tension_onset_minute: 12, recommended_cap: 10, session_id: "sess_2002_reddit" } },
-  },
-];
+const appMessages: Record<string, any[]> = {
+  instagram: instagramMessages,
+  reddit: [
+    { id: "r1", role: "user", timestamp: "2026-02-28T21:30:12Z", content: "Why did my Reddit session feel so agitating tonight?", message_type: "text" },
+    { id: "r2", role: "assistant", timestamp: "2026-02-28T21:30:16Z", content: "Your Reddit session from 8:02 PM lasted 23 minutes. Your swipe velocity averaged 640 px/s — well above your baseline. You spent 18 of those minutes in comment threads rather than browsing posts, which correlates with higher emotional arousal.", message_type: "text" },
+    { id: "r3", role: "user", timestamp: "2026-02-28T21:31:00Z", content: "What kind of content was driving that?", message_type: "text" },
+    { id: "r4", role: "assistant", timestamp: "2026-02-28T21:31:04Z", content: "You were deep in threaded discussions — rapidly expanding replies. Reddit's nested comment structure creates a \"rabbit hole\" effect: each reply pulls you deeper, and emotional stakes escalate as arguments get more heated.", message_type: "insight_card",
+      insight_card: { title: "The Rabbit Hole Effect", body: "Reddit's nested threads create escalating emotional investment. You expanded an average of 6.2 reply levels deep, with 34 expand actions in 23 minutes. Each level deeper increases cognitive load and emotional arousal.", cited_stat: "34 thread expansions in 23 min — 1.5/min, 2.4× your usual pace" } },
+    { id: "r5", role: "user", timestamp: "2026-02-28T21:31:45Z", content: "How can I stop falling into that pattern?", message_type: "text" },
+    { id: "r6", role: "assistant", timestamp: "2026-02-28T21:31:48Z", content: "Two approaches: (1) Enable **Thread Depth Nudge** — after expanding 4 levels deep, you'll see a prompt asking \"Still worth reading?\". (2) Set a **comment-thread time cap** of 10 minutes. Your tension spikes around minute 12, so catching it earlier preserves your calm.", message_type: "text" },
+  ],
+  twitter: [
+    { id: "t1", role: "user", timestamp: "2026-02-28T20:15:00Z", content: "I just spent over an hour on Twitter and I feel awful. What happened?", message_type: "text" },
+    { id: "t2", role: "assistant", timestamp: "2026-02-28T20:15:04Z", content: "Your Twitter session from 7:08 PM lasted 68 minutes. Your engagement pattern was heavy on quote tweets and reply threads — you interacted with 42 posts, 31 of which were in heated political or outrage-driven threads. Your scroll speed spiked 3× during those moments.", message_type: "text" },
+    { id: "t3", role: "user", timestamp: "2026-02-28T20:16:00Z", content: "Why do I keep getting pulled into those threads?", message_type: "text" },
+    { id: "t4", role: "assistant", timestamp: "2026-02-28T20:16:05Z", content: "Twitter's algorithm amplifies emotionally charged content — outrage gets 3× more engagement than neutral posts. Your data shows a clear pattern: you start with your timeline, encounter one provocative tweet, and then spend the next 40+ minutes in reactive mode.", message_type: "insight_card",
+      insight_card: { title: "The Outrage Amplifier", body: "Twitter's recommendation engine prioritises high-engagement content, which skews toward outrage and controversy. Your session data shows you shifted from passive browsing to active argument within 8 minutes of opening the app — a pattern that repeated 4 times this week.", cited_stat: "31 of 42 interactions were in outrage threads — 74% of your session" } },
+    { id: "t5", role: "user", timestamp: "2026-02-28T20:17:00Z", content: "What can I do about it?", message_type: "text" },
+    { id: "t6", role: "assistant", timestamp: "2026-02-28T20:17:04Z", content: "I'd suggest: (1) Enable **Reply Cooldown** — a 30-second pause before you can post a reply in threads, giving your rational brain time to catch up. (2) Activate **Outrage Filter** mode after 15 minutes, which dims engagement-bait content. Your tension peaks at minute 20 — intervening at 15 keeps you in control.", message_type: "text" },
+  ],
+  youtube: [
+    { id: "y1", role: "user", timestamp: "2026-02-28T23:45:00Z", content: "I lost track of time on YouTube again tonight. Why does this keep happening?", message_type: "text" },
+    { id: "y2", role: "assistant", timestamp: "2026-02-28T23:45:04Z", content: "Your YouTube session tonight lasted 5 hours and 20 minutes — starting at 6:40 PM with a tutorial video and ending at midnight on your 34th autoplay video. Your watch time accelerated after 9 PM when you shifted from intentional searches to autoplay recommendations.", message_type: "text" },
+    { id: "y3", role: "user", timestamp: "2026-02-28T23:46:00Z", content: "Why is autoplay so hard to resist?", message_type: "text" },
+    { id: "y4", role: "assistant", timestamp: "2026-02-28T23:46:05Z", content: "YouTube's autoplay creates a \"just one more\" loop — each video is algorithmically selected to be slightly more engaging than the last. Your data shows you only made 6 active choices tonight; the other 28 videos were autoplay selections you passively accepted.", message_type: "insight_card",
+      insight_card: { title: "The Autoplay Trap", body: "YouTube's autoplay algorithm creates a passive consumption loop. Tonight, 82% of your videos were autoplay — not your choice. Your average watch completion rate was 94%, meaning you rarely decided to skip. The algorithm effectively made your viewing decisions for you.", cited_stat: "28 of 34 videos were autoplay — only 6 were your active choice" } },
+    { id: "y5", role: "user", timestamp: "2026-02-28T23:47:00Z", content: "How do I break this cycle?", message_type: "text" },
+    { id: "y6", role: "assistant", timestamp: "2026-02-28T23:47:04Z", content: "Three strategies: (1) **Autoplay Friction** — after 3 consecutive autoplay videos, require a manual tap to continue. (2) Set a **session checkpoint** at 45 minutes with a \"Still watching intentionally?\" prompt. (3) Enable **Wind-Down Mode** after 10 PM that converts the UI to audio-only. Your binge sessions always start between 9–10 PM.", message_type: "text" },
+  ],
+};
 
 const AIReflection = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const app = searchParams.get("app") || "instagram";
+  const appLabel = app.charAt(0).toUpperCase() + app.slice(1);
 
-  const initialMessages = app === "reddit" ? redditMessages : instagramMessages;
+  const initialMessages = appMessages[app] || appMessages.instagram;
   const [messages, setMessages] = useState<any[]>(initialMessages);
   const [input, setInput] = useState("");
 
@@ -76,7 +70,7 @@ const AIReflection = () => {
           <ArrowLeft className="w-4 h-4" />
         </button>
         <h1 className="text-lg font-semibold text-foreground">
-          AI Reflection — {app === "reddit" ? "Reddit" : "Instagram"}
+          AI Reflection — {appLabel}
         </h1>
       </div>
 
