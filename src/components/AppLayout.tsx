@@ -1,12 +1,12 @@
 import { NavLink, Outlet, useLocation } from "react-router-dom";
-import { Activity, MessageCircle, Settings, Layers, Sprout } from "lucide-react";
+import { Activity, Settings, Layers, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import SamsungStatusBar from "./SamsungStatusBar";
 import AndroidNavBar from "./AndroidNavBar";
 
 const navItems = [
   { to: "/intent-spectrum", icon: Activity, label: "Dashboard" },
-  { to: "/ai-reflection", icon: MessageCircle, label: "Reflect" },
+  { to: "/ai-reflection?mode=generic_reflect", icon: Sparkles, label: "AI Reflect", isAI: true },
   { to: "/settings/habits", icon: Settings, label: "Settings" },
   { to: "/overlay/demo", icon: Layers, label: "Overlay" },
 ];
@@ -41,21 +41,23 @@ const AppLayout = () => {
       {showBottomNav && (
         <nav className="border-t border-[#2C2C2E] bg-[#1C1C1E]/90 backdrop-blur-md">
           <div className="max-w-4xl mx-auto flex justify-around py-2">
-            {navItems.map(({ to, icon: Icon, label }) => (
+            {navItems.map(({ to, icon: Icon, label, isAI }) => (
               <NavLink
                 key={to}
                 to={to}
                 end={to === "/intent-spectrum"}
                 className={({ isActive }) =>
                   `flex flex-col items-center gap-1 px-4 py-2 rounded-lg transition-colors ${
-                    isActive
-                      ? "text-[#4CAF50]"
-                      : "text-[#888] hover:text-[#ccc]"
+                    isAI
+                      ? isActive ? "text-[#4CAF50]" : "text-[#4CAF50]/70 hover:text-[#4CAF50]"
+                      : isActive
+                        ? "text-[#4CAF50]"
+                        : "text-[#888] hover:text-[#ccc]"
                   }`
                 }
               >
-                <Icon className="w-5 h-5" />
-                <span className="text-[10px] font-medium">{label}</span>
+                <Icon className={`w-5 h-5 ${isAI ? "drop-shadow-[0_0_6px_rgba(76,175,80,0.5)]" : ""}`} />
+                <span className={`text-[10px] font-medium ${isAI ? "font-semibold" : ""}`}>{label}</span>
               </NavLink>
             ))}
           </div>
