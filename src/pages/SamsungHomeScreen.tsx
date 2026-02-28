@@ -2,23 +2,15 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import {
   MessageCircle, Camera as CameraIcon, Phone, Globe,
-  Settings, Play, Music, Image, Clock, Ghost,
+  Settings, Search,
   Sun
 } from "lucide-react";
 
-const appGrid = [
-  [
-    { name: "WhatsApp", color: "#25D366", icon: MessageCircle, target: null },
-    { name: "Instagram", gradient: "linear-gradient(135deg, #E91E63, #FF9800)", icon: CameraIcon, target: null },
-    { name: "Settings", color: "#9E9E9E", icon: Settings, target: "/settings" },
-    { name: "Snapchat", color: "#FFEB3B", icon: Ghost, target: null },
-  ],
-  [
-    { name: "YouTube", color: "#F44336", icon: Play, target: null },
-    { name: "Spotify", color: "#1DB954", icon: Music, target: null },
-    { name: "Gallery", color: "#9C27B0", icon: Image, target: null },
-    { name: "Clock", color: "#FF9800", icon: Clock, target: null },
-  ],
+const appRow = [
+  { name: "WhatsApp", color: "#25D366", icon: MessageCircle, target: null },
+  { name: "Instagram", gradient: "linear-gradient(135deg, #E91E63, #FF9800)", icon: CameraIcon, target: null },
+  { name: "Settings", color: "#9E9E9E", icon: Settings, target: "/settings" },
+  { name: "Google", color: "#4285F4", icon: Globe, target: null },
 ];
 
 const dockApps = [
@@ -123,32 +115,52 @@ const SamsungHomeScreen = () => {
               </div>
             </div>
 
-            {/* App Grid */}
-            <div className="relative z-10 flex-1 flex flex-col justify-center px-6 gap-5">
-              {appGrid.map((row, rowIdx) => (
-                <div key={rowIdx} className="grid grid-cols-4 gap-4">
-                  {row.map((app) => (
-                    <button
-                      key={app.name}
-                      onClick={() => handleAppTap(app.target)}
-                      className="flex flex-col items-center gap-1.5 active:scale-90 transition-transform"
-                    >
-                      <div
-                        className="w-[54px] h-[54px] rounded-[14px] flex items-center justify-center shadow-lg"
-                        style={{
-                          background: app.gradient || app.color,
-                        }}
-                      >
-                        <app.icon className="w-6 h-6 text-white" strokeWidth={1.8} />
-                      </div>
-                      <span className="text-white/90 text-[11px]">{app.name}</span>
-                    </button>
-                  ))}
+            {/* Google Search Bar */}
+            <div className="relative z-10 px-8 mb-4">
+              <div
+                className="flex items-center gap-3 px-4 py-2.5 rounded-full"
+                style={{
+                  background: "rgba(255,255,255,0.12)",
+                  backdropFilter: "blur(12px)",
+                  border: "1px solid rgba(255,255,255,0.08)",
+                }}
+              >
+                <div className="w-7 h-7 rounded-full bg-white flex items-center justify-center">
+                  <span className="text-[16px] font-bold" style={{
+                    background: "linear-gradient(135deg, #4285F4, #EA4335, #FBBC05, #34A853)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                  }}>G</span>
                 </div>
-              ))}
+                <span className="text-white/40 text-[14px] flex-1">Search</span>
+                <Search className="w-4 h-4 text-white/40" />
+              </div>
+            </div>
+
+            {/* App Row */}
+            <div className="relative z-10 flex-1 flex flex-col justify-end px-6 pb-4">
+              <div className="grid grid-cols-4 gap-4">
+                {appRow.map((app) => (
+                  <button
+                    key={app.name}
+                    onClick={() => handleAppTap(app.target)}
+                    className="flex flex-col items-center gap-1.5 active:scale-90 transition-transform"
+                  >
+                    <div
+                      className="w-[54px] h-[54px] rounded-[14px] flex items-center justify-center shadow-lg"
+                      style={{
+                        background: app.gradient || app.color,
+                      }}
+                    >
+                      <app.icon className="w-6 h-6 text-white" strokeWidth={1.8} />
+                    </div>
+                    <span className="text-white/90 text-[11px]">{app.name}</span>
+                  </button>
+                ))}
+              </div>
 
               {/* Swipe hint */}
-              <div className="flex justify-center mt-2">
+              <div className="flex justify-center mt-3">
                 <span className="text-[11px]" style={{ color: "rgba(255,255,255,0.3)" }}>
                   ↑ swipe up for app drawer
                 </span>
