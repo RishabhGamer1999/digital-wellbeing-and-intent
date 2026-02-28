@@ -1,14 +1,15 @@
-import { useState } from "react";
-import { ArrowLeft, Send, ThumbsUp, ThumbsDown, Lightbulb } from "lucide-react";
+import { useState, useEffect } from "react";
+import { ArrowLeft, Send, ThumbsUp, ThumbsDown, Lightbulb, Sparkles } from "lucide-react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import data from "@/data/digital-wellbeing-data.json";
 
 const screen = data.screens[3] as any;
-const chips = screen.components.find((c: any) => c.type === "chips_row").chips;
+const sessionChips = screen.components.find((c: any) => c.type === "chips_row").chips;
 const instagramMessages = screen.components.find((c: any) => c.type === "chat_list").messages;
 
-const appMessages: Record<string, any[]> = {
+// Session-specific messages per app
+const sessionAppMessages: Record<string, any[]> = {
   instagram: instagramMessages,
   reddit: [
     { id: "r1", role: "user", timestamp: "2026-02-28T21:30:12Z", content: "Why did my Reddit session feel so agitating tonight?", message_type: "text" },
@@ -39,15 +40,76 @@ const appMessages: Record<string, any[]> = {
   ],
 };
 
+// Generic mode opening message
+const genericOpeningMessage = {
+  id: "generic_open",
+  role: "assistant",
+  timestamp: new Date().toISOString(),
+  content: "Today you spent **6h 23m** on screen. Your highest tension period was between 10–11 PM, driven primarily by Instagram. 18% of your day was in high-tension states, while 34% was focused work. Your most-used app was Instagram (47 min), followed by Reddit (23 min). What would you like to explore?",
+  message_type: "text",
+};
+
+// Generic chips
+const genericChips = [
+  { id: "gc1", label: "Why was I tense today?", prefill_message: "Why was I tense today?" },
+  { id: "gc2", label: "Which app drained me most?", prefill_message: "Which app drained me most?" },
+  { id: "gc3", label: "When was I most focused?", prefill_message: "When was I most focused?" },
+  { id: "gc4", label: "Help me build a better routine", prefill_message: "Help me build a better routine" },
+];
+
+// Session-specific chips
+const sessionSpecificChips = [
+  { id: "sc1", label: "Why do I feel drained?", prefill_message: "Why do I feel so drained after this session?" },
+  { id: "sc2", label: "What triggered this?", prefill_message: "What triggered this session?" },
+  { id: "sc3", label: "Was I stressed?", prefill_message: "Was I stressed during this session based on my sensor data?" },
+  { id: "sc4", label: "Help me set a limit", prefill_message: "Help me set a screen time limit to prevent this from happening again." },
+];
+
+const appFilterOptions = ["All Apps", "Instagram", "Reddit", "TikTok", "Twitter", "YouTube"];
+
 const AIReflection = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const app = searchParams.get("app") || "instagram";
-  const appLabel = app.charAt(0).toUpperCase() + app.slice(1);
+  
+  const mode = searchParams.get("mode") || "generic_reflect";
+  const app = searchParams.get("app") || "";
+  const sessionId = searchParams.get("session_id") || "";
+  const autoSend = searchParams.get("auto_send");
+  
+  const isSessionMode = mode === "session_reflect";
+  const appLabel = app ? app.charAt(0).toUpperCase() + app.slice(1) : "";
 
-  const initialMessages = appMessages[app] || appMessages.instagram;
-  const [messages, setMessages] = useState<any[]>(initialMessages);
+  // Session metadata (from data.json for the Instagram session — used as template)
+  const sessionMeta = (data.screens[2] as any).components.find((c: any) => c.type === "session_header")?.data;
+  const sessionTimeRange = sessionMeta
+    ? `${new Date(sessionMeta.start_time).toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" })} – ${new Date(sessionMeta.end_time).toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit" })} · ${sessionMeta.duration_minutes} min · ${sessionMeta.detected_state.replace("_", " ").replace(/\b\w/g, (c: string) => c.toUpperCase())}`
+    : "";
+
+  // Determine initial messages
+  const getInitialMessages = () => {
+    if (isSessionMode) {
+      const msgs = sessionAppMessages[app] || sessionAppMessages.instagram;
+      if (autoSend === "trigger") {
+        return [
+          { id: "auto_user", role: "user", timestamp: new Date().toISOString(), content: "What triggered this session?", message_type: "text" },
+          ...(msgs.length > 1 ? [msgs[1]] : []),
+        ];
+      }
+      return msgs;
+    }
+    return [genericOpeningMessage];
+  };
+
+  const [messages, setMessages] = useState<any[]>(getInitialMessages);
   const [input, setInput] = useState("");
+  const [activeFilter, setActiveFilter] = useState("All Apps");
+
+  // Get chips based on mode and filter
+  const currentChips = isSessionMode
+    ? sessionSpecificChips
+    : activeFilter !== "All Apps"
+      ? sessionSpecificChips
+      : genericChips;
 
   const handleChip = (prefill: string) => {
     setInput(prefill);
@@ -65,18 +127,36 @@ const AIReflection = () => {
   return (
     <div className="flex flex-col h-[calc(100vh-140px)]">
       {/* Header */}
-      <div className="flex items-center gap-3 pb-4">
-        <button onClick={() => navigate(-1)} className="text-muted-foreground hover:text-foreground transition-colors">
-          <ArrowLeft className="w-4 h-4" />
-        </button>
-        <h1 className="text-lg font-semibold text-foreground">
-          AI Reflection — {appLabel}
-        </h1>
+      <div className="pb-3">
+        {isSessionMode && (
+          <button
+            onClick={() => navigate(-1)}
+            className="flex items-center gap-1.5 text-[11px] text-muted-foreground hover:text-foreground transition-colors mb-2 px-2 py-1 rounded-lg bg-card border border-border"
+          >
+            <ArrowLeft className="w-3 h-3" />
+            {appLabel} Session Detail
+          </button>
+        )}
+        <div className="flex items-center gap-3">
+          {!isSessionMode && (
+            <button onClick={() => navigate(-1)} className="text-muted-foreground hover:text-foreground transition-colors">
+              <ArrowLeft className="w-4 h-4" />
+            </button>
+          )}
+          <div>
+            <h1 className="text-lg font-semibold text-foreground">
+              {isSessionMode ? `${appLabel} Session` : "AI Reflect"}
+            </h1>
+            <p className="text-[11px] text-muted-foreground">
+              {isSessionMode ? sessionTimeRange : "Ask about your overall behaviour"}
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* Chips */}
       <div className="flex gap-2 flex-wrap pb-3">
-        {chips.map((chip: any) => (
+        {currentChips.map((chip: any) => (
           <button
             key={chip.id}
             onClick={() => handleChip(chip.prefill_message)}
@@ -132,6 +212,25 @@ const AIReflection = () => {
           ))}
         </AnimatePresence>
       </div>
+
+      {/* App filter chips (generic mode only) */}
+      {!isSessionMode && (
+        <div className="flex gap-1.5 overflow-x-auto pb-2 scrollbar-hide">
+          {appFilterOptions.map((opt) => (
+            <button
+              key={opt}
+              onClick={() => setActiveFilter(opt)}
+              className={`text-[10px] px-2.5 py-1 rounded-full border whitespace-nowrap transition-colors ${
+                activeFilter === opt
+                  ? "bg-primary/15 text-primary border-primary/30 font-medium"
+                  : "bg-card text-muted-foreground border-border hover:border-primary/20"
+              }`}
+            >
+              {opt}
+            </button>
+          ))}
+        </div>
+      )}
 
       {/* Input */}
       <div className="flex gap-2 pt-2 border-t border-border">
