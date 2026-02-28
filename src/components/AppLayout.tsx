@@ -13,7 +13,7 @@ const navItems = [
 
 const AppLayout = () => {
   const location = useLocation();
-  const isSettingsOrLanding = location.pathname === "/" || location.pathname === "/digital-wellbeing";
+  const isSettingsOrLanding = location.pathname === "/" || location.pathname === "/settings" || location.pathname === "/digital-wellbeing";
   const showBottomNav = !isSettingsOrLanding;
 
   return (
