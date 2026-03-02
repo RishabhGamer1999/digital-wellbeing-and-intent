@@ -47,8 +47,8 @@ const OverlayDemo = () => {
   const resistance = currentPhase === "phase_viscous" ? 4.5 : 1;
 
   return (
-    <div className="flex flex-col h-full min-h-0">
-      <div className="space-y-4 shrink-0">
+    <div className="space-y-4">
+      <div className="flex items-center justify-between">
         <div>
           <h1 className="text-lg font-semibold text-foreground">Viscous Scroll Demo</h1>
           <p className="text-xs text-muted-foreground">Scroll fast to trigger the intervention</p>
@@ -84,7 +84,7 @@ const OverlayDemo = () => {
       {/* Feed */}
       <div
         ref={scrollRef}
-        className="flex-1 min-h-0 overflow-y-auto rounded-xl border border-border bg-card mt-4"
+        className="h-[480px] overflow-y-auto rounded-xl border border-border bg-card"
         style={{
           scrollBehavior: currentPhase === "phase_viscous" ? "smooth" : "auto",
           overscrollBehavior: "contain",
