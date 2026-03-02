@@ -72,7 +72,9 @@ const IntentTimeline = ({ slots, range = "today", component_type = "intent_spect
               title={tooltipLabel}
             >
               {/* Tooltip on hover */}
-              <div className="absolute -top-14 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10">
+              <div className={`absolute -top-14 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-10 ${
+                i <= 2 ? "left-0" : i >= slots.length - 3 ? "right-0" : "left-1/2 -translate-x-1/2"
+              }`}>
                 <div className="bg-card border border-border rounded-md px-2 py-1 text-[10px] whitespace-nowrap shadow-lg">
                   <span className="text-foreground font-medium">{slot.dominant_app}</span>
                   <br />
