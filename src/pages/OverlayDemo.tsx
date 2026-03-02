@@ -47,8 +47,8 @@ const OverlayDemo = () => {
   const resistance = currentPhase === "phase_viscous" ? 4.5 : 1;
 
   return (
-    <div className="space-y-4">
-      <div className="flex items-center justify-between">
+    <div className="flex flex-col h-full min-h-0">
+      <div className="space-y-4 shrink-0">
         <div>
           <h1 className="text-lg font-semibold text-foreground">Viscous Scroll Demo</h1>
           <p className="text-xs text-muted-foreground">Scroll fast to trigger the intervention</p>
@@ -84,7 +84,7 @@ const OverlayDemo = () => {
       {/* Feed */}
       <div
         ref={scrollRef}
-        className="h-[400px] overflow-y-auto rounded-xl border border-border bg-card"
+        className="flex-1 min-h-0 overflow-y-auto rounded-xl border border-border bg-card mt-4"
         style={{
           scrollBehavior: currentPhase === "phase_viscous" ? "smooth" : "auto",
           overscrollBehavior: "contain",
@@ -98,9 +98,22 @@ const OverlayDemo = () => {
               <span className="text-sm font-medium text-foreground">{item.user_handle}</span>
             </div>
             <div
-              className="w-full h-48 rounded-lg"
-              style={{ background: `${item.placeholder_color}33` }}
-            />
+              className="w-full h-48 rounded-lg overflow-hidden relative"
+              style={{ background: `linear-gradient(135deg, ${item.placeholder_color}44, ${item.placeholder_color}BB)` }}
+            >
+              {/* Faux post content */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
+                <div className="w-16 h-16 rounded-full border-2 border-white/30" style={{ background: `${item.placeholder_color}99` }} />
+                <div className="flex gap-1">
+                  <div className="w-12 h-2 rounded-full bg-white/20" />
+                  <div className="w-8 h-2 rounded-full bg-white/15" />
+                </div>
+                <div className="w-20 h-2 rounded-full bg-white/10" />
+              </div>
+              {/* Decorative shapes */}
+              <div className="absolute top-3 right-3 w-6 h-6 rounded-md rotate-12 bg-white/10" />
+              <div className="absolute bottom-4 left-4 w-10 h-10 rounded-full bg-white/8" />
+            </div>
             <div className="flex items-center gap-4 text-muted-foreground">
               <button className="flex items-center gap-1 text-xs hover:text-high-tension transition-colors">
                 <Heart className="w-4 h-4" /> {item.like_count.toLocaleString()}
