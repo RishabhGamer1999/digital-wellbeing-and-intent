@@ -59,13 +59,13 @@ const dataByRange = {
     subtitle: "Weekly patterns across your digital habits",
     stats: { totalScreenTime: "38h 12m", highTensionPercentage: 31, focusedPercentage: 28 },
     slots: [
-      { hour: 0, state: "elevated", color: "#FF9800", dominant_app: "Instagram", session_ids: ["sess_2200_instagram"], label: "Mon" },
-      { hour: 1, state: "high_tension", color: "#F44336", dominant_app: "Twitter", session_ids: ["sess_2200_instagram"], label: "Tue" },
-      { hour: 2, state: "focused", color: "#8BC34A", dominant_app: "Notion", session_ids: ["sess_070"], label: "Wed" },
-      { hour: 3, state: "relaxed", color: "#4CAF50", dominant_app: "Spotify", session_ids: [], label: "Thu" },
-      { hour: 4, state: "high_tension", color: "#F44336", dominant_app: "Reddit", session_ids: ["sess_2200_instagram"], label: "Fri" },
-      { hour: 5, state: "elevated", color: "#FF9800", dominant_app: "YouTube", session_ids: ["sess_2200_instagram"], label: "Sat" },
-      { hour: 6, state: "focused", color: "#8BC34A", dominant_app: "Chrome", session_ids: ["sess_060"], label: "Sun" },
+      { hour: 0, state: "mixed", color: "#4CAF50", dominant_app: "Instagram", session_ids: ["sess_2200_instagram"], label: "Mon", breakdown: { utility: 25, leisure: 40, dysregulation: 35 } },
+      { hour: 1, state: "mixed", color: "#F44336", dominant_app: "Twitter", session_ids: ["sess_2200_instagram"], label: "Tue", breakdown: { utility: 15, leisure: 30, dysregulation: 55 } },
+      { hour: 2, state: "mixed", color: "#8BC34A", dominant_app: "Notion", session_ids: ["sess_070"], label: "Wed", breakdown: { utility: 55, leisure: 35, dysregulation: 10 } },
+      { hour: 3, state: "mixed", color: "#4CAF50", dominant_app: "Spotify", session_ids: ["sess_130"], label: "Thu", breakdown: { utility: 40, leisure: 50, dysregulation: 10 } },
+      { hour: 4, state: "mixed", color: "#F44336", dominant_app: "Reddit", session_ids: ["sess_2200_instagram"], label: "Fri", breakdown: { utility: 20, leisure: 25, dysregulation: 55 } },
+      { hour: 5, state: "mixed", color: "#FF9800", dominant_app: "YouTube", session_ids: ["sess_2200_instagram"], label: "Sat", breakdown: { utility: 30, leisure: 45, dysregulation: 25 } },
+      { hour: 6, state: "mixed", color: "#8BC34A", dominant_app: "Chrome", session_ids: ["sess_060"], label: "Sun", breakdown: { utility: 50, leisure: 38, dysregulation: 12 } },
     ],
     alert: { appName: "Instagram", duration: 145, trigger: "Repeated late-night doom scrolling detected", scroll: 820, session: "sess_2200_instagram" },
     highTension: [
@@ -84,16 +84,19 @@ const dataByRange = {
     stats: { totalScreenTime: "156h 40m", highTensionPercentage: 28, focusedPercentage: 32 },
     slots: Array.from({ length: 30 }, (_, i) => {
       const day = i + 1;
-      const states = ["relaxed", "focused", "neutral", "elevated", "high_tension"];
       const apps = ["Instagram", "Reddit", "Twitter", "YouTube", "Notion", "Chrome", "Spotify"];
-      const state = states[(day * 7 + day) % 5];
+      // Generate varied but deterministic breakdowns
+      const u = 15 + ((day * 13) % 40);
+      const d2 = 10 + ((day * 7) % 35);
+      const l = 100 - u - d2;
       return {
         hour: i,
-        state,
-        color: state === "high_tension" ? "#F44336" : state === "elevated" ? "#FF9800" : state === "focused" ? "#8BC34A" : state === "neutral" ? "#9E9E9E" : "#4CAF50",
+        state: "mixed",
+        color: "#4CAF50",
         dominant_app: apps[day % 7],
-        session_ids: state === "relaxed" ? [] : ["sess_2200_instagram"],
+        session_ids: ["sess_2200_instagram"],
         label: `${day}`,
+        breakdown: { utility: u, leisure: Math.max(l, 5), dysregulation: d2 },
       };
     }),
     alert: { appName: "Instagram", duration: 580, trigger: "Consistent high-tension pattern detected monthly", scroll: 790, session: "sess_2200_instagram" },
