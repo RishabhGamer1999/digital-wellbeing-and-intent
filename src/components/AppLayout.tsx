@@ -22,7 +22,7 @@ const AppLayout = () => {
       <SamsungStatusBar />
 
       {/* Main content */}
-      <main className="flex-1 overflow-y-auto overflow-x-hidden">
+      <main className="flex-1 overflow-y-auto overflow-x-hidden flex flex-col min-h-0">
         {isSettingsOrLanding ? (
           <Outlet />
         ) : (
@@ -30,7 +30,7 @@ const AppLayout = () => {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
-            className="max-w-4xl mx-auto px-4 py-6"
+            className="max-w-4xl mx-auto px-4 py-6 flex-1 flex flex-col min-h-0 w-full"
           >
             <Outlet />
           </motion.div>
