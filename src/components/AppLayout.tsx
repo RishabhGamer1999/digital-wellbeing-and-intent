@@ -17,12 +17,12 @@ const AppLayout = () => {
   const showBottomNav = !isSettingsOrLanding;
 
   return (
-    <div className="min-h-screen max-w-[430px] mx-auto bg-background flex flex-col overflow-x-hidden shadow-xl">
+    <div className="h-screen max-w-[430px] mx-auto bg-background flex flex-col overflow-hidden shadow-xl">
       {/* Samsung Status Bar */}
       <SamsungStatusBar />
 
       {/* Main content */}
-      <main className="flex-1 overflow-y-auto overflow-x-hidden flex flex-col min-h-0">
+      <main className="flex-1 overflow-y-auto overflow-x-hidden">
         {isSettingsOrLanding ? (
           <Outlet />
         ) : (
@@ -30,7 +30,7 @@ const AppLayout = () => {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
-            className="max-w-4xl mx-auto px-4 py-6 flex-1 flex flex-col min-h-0 w-full"
+            className="max-w-4xl mx-auto px-4 py-6 w-full"
           >
             <Outlet />
           </motion.div>
@@ -39,7 +39,7 @@ const AppLayout = () => {
 
       {/* Bottom nav for inner screens */}
       {showBottomNav && (
-        <nav className="border-t border-border bg-card/90 backdrop-blur-md">
+        <nav className="shrink-0 border-t border-border bg-card/90 backdrop-blur-md">
           <div className="max-w-4xl mx-auto flex justify-around py-2">
             {navItems.map(({ to, icon: Icon, label, isAI }) => (
               <NavLink
