@@ -63,6 +63,10 @@ export default {
         elevated: "hsl(var(--elevated))",
         "high-tension": "hsl(var(--high-tension))",
         relaxed: "hsl(var(--relaxed))",
+        utility: "hsl(var(--utility))",
+        leisure: "hsl(var(--leisure))",
+        dysregulation: "hsl(var(--dysregulation))",
+        inactive: "hsl(var(--inactive))",
         "surface-elevated": "hsl(var(--surface-elevated))",
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
